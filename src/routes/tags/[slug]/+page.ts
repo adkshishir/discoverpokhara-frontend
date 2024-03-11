@@ -3,7 +3,7 @@ import getApi from '$lib/helper/get.js'
 
 
 export const load=async({ params,fetch }) => {
-    const category=await getApi(`${CATEGORIES}/${params.slug}`)
+    const category=await getApi(`${TAGS}/${params.slug}`)
     const tags=await getApi(TAGS);
     let data={
         category:category.data.category,

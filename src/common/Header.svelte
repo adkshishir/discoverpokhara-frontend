@@ -10,7 +10,7 @@
 </script>
 
 <!-- Topbar Start -->
-<div class="container-fluid d-none d-lg-block">
+<div class="container-fluid d-none d-lg-block" id="top">
 	<div class="row align-items-center bg-dark px-lg-5">
 		<div class="col-lg-9">
 			<nav class="navbar navbar-expand-sm bg-dark p-0">
@@ -75,9 +75,10 @@
 <!-- Navbar Start -->
 <div class="container-fluid p-0">
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
-		<a href="index.html" class="navbar-brand d-block d-lg-none">
+		<a href="/" class="navbar-brand d-block d-lg-none">
 			<h1 class="m-0 display-4 text-uppercase text-primary">
-				Biz<span class="text-white font-weight-normal">News</span>
+				Discover <span class="text-white font-weight-normal">Pkr</span>
+				<!-- <span class="w-50"><img class="img-fluid w-50" src="/logo.webp" alt="Discover Pokhara" /></span> -->
 			</h1>
 		</a>
 		<button
@@ -95,7 +96,7 @@
 					{#each categories as category,index}
 					{#if index<=6}
 						<div class="nav-item dropdown">
-							<a href="/category/{category.slug}"><a href="/category/{category.slug}"  class="nav-link dropdown-toggle" data-toggle="dropdown">{category.name}</a></a>
+							<a href="#top"  class="nav-link dropdown-toggle" data-toggle="dropdown">{category.name}</a>
 							<div class="dropdown-menu rounded-0 m-0" style="max-height: 300px;overflow-y: auto">
 								{#each category.posts as post}
 									<a href="/{post.slug}" data-sveltekit-reload class="dropdown-item">{post.title}</a>

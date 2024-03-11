@@ -2,24 +2,26 @@
 	import { onMount } from 'svelte';
 	import Footer from '../common/Footer.svelte';
 	import Header from '../common/Header.svelte';
-    import {FRONTEND_URL} from '$lib/const/api'
-   
+	import { CATEGORIES, FRONTEND_URL,TAGS} from '$lib/const/api';
+	import getApi from '$lib/helper/get';
+	 let data:any;
 	let isLoaded = false;
 	onMount(async () => {
 		setTimeout(() => {
 			isLoaded = true;
-		}, 10);
-      
+		}, 100);
+      data=await getApi(CATEGORIES);
+	  console.log(data)
 	});
+
 </script>
 
-<Header  />
+<Header />
 <slot />
-<Footer />
+<Footer data={data} />
 
 <div>
-	{#if isLoaded}
-		<!-- Template Javascript -->
-		<script src="{FRONTEND_URL}/js/main.js"></script>
-	{/if}
 </div>
+{#if isLoaded}
+<script src="{FRONTEND_URL}/js/main.js"></script>
+{/if}
