@@ -9,7 +9,7 @@
        async function fetchData() {
         let data = await getApi(CATEGORIES);
         categories = data.categories;
-         console.log(categories)
+        
        }
        fetchData();
 </script>

@@ -25,7 +25,7 @@
  <MainNews data={data.tags[0]}/>
  <BreakingNews data={data.tags[1].posts}/>
  <FeatureNews data={data.tags[2]}/>
- <NewsWithSideBar data={data.tags[3]} latest={data.latest}  />
+ <NewsWithSideBar data={data.tags[3]} latest={data.latest} tags={tagNames} />
 
  
 

@@ -7,7 +7,7 @@
 	import Tags from './Tags.svelte';
 	export let data: any;
 	export let latest: any;
-    // export let tags: { name: string; slug: string }[] = [];
+    export let tags: { name: string; slug: string }[] = [];
 	
 </script>
 <!-- News With Sidebar Start -->

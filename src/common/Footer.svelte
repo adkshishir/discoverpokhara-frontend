@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_FRONTEND_URL } from '$env/static/public';
+	
 	import { FRONTEND_URL } from '$lib/const/api';
 
 	export let data: any;
@@ -46,17 +46,17 @@
 								<a
 									data-sveltekit-reload
 									class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-									href="{PUBLIC_FRONTEND_URL}/category/{data?.categories[1].slug}"
+									href="{FRONTEND_URL}/category/{data?.categories[1].slug}"
 									>{data?.categories[1].name}</a
 								>
-								<a data-sveltekit-reload class="text-body" href="{PUBLIC_FRONTEND_URL}/{post.slug}"
+								<a data-sveltekit-reload class="text-body" href="{FRONTEND_URL}/{post.slug}"
 									><small>Jan 01, 2045</small></a
 								>
 							</div>
 							<a
 								data-sveltekit-reload
 								class="small text-body text-uppercase font-weight-medium"
-								href="{PUBLIC_FRONTEND_URL}/{post.slug}">{post.title}</a
+								href="{FRONTEND_URL}/{post.slug}">{post.title}</a
 							>
 						</div>
 					{/if}

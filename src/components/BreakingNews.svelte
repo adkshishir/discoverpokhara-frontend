@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_FRONTEND_URL } from "$env/static/public";
+	import {FRONTEND_URL} from '$lib/const/api'
 
     export let data:{title:string,slug:string}[] ;
 </script>
@@ -17,7 +17,7 @@
                         style="width: calc(100% - 170px); padding-right: 90px;">
                         
                         {#each data as {title,slug}}
-                        <div title="{title}" class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="{PUBLIC_FRONTEND_URL}/{slug}">{title}</a></div>
+                        <div title="{title}" class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="{FRONTEND_URL}/{slug}">{title}</a></div>
                         <!-- <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit. Proin interdum lacus eget ante tincidunt, sed faucibus nisl sodales</a></div> -->
                         {/each}
                     </div>

@@ -41,7 +41,7 @@
 						class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
 						style="width: calc(100% - 180px); padding-right: 100px;"
 					>
-					{#each data.relatedPost as relatedPost}
+				      	{#each data?.relatedPost as relatedPost}
 						<div class="text-truncate">
 							<a class="text-secondary text-uppercase font-weight-semi-bold" href="/{relatedPost.slug}">
 								{relatedPost.title}</a
@@ -66,8 +66,8 @@
 				<div class="position-relative mb-3">
 					<img
 						class="img-fluid w-100"
-						src={data.post.image}
-						alt={data.post.title}
+						src={data?.post?.image}
+						alt={data?.post?.title}
 						style="object-fit: cover;"
 					/>
 					<div class="bg-white border border-top-0 p-4">
