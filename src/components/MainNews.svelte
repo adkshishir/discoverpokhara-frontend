@@ -11,7 +11,7 @@ export let data:any={};
             <div class="owl-carousel main-carousel position-relative">
               {#each data.posts as post,index}
               {#if index<5}
-                <div class="position-relative overflow-hidden" style="height: 500px;">
+                <div title="{post.title}" class="position-relative overflow-hidden" style="height: 500px;">
                     <img class="img-fluid h-100" alt="{post.title}" src={post.image} style="object-fit: cover;">
                     <div class="overlay">
                         <div class="mb-2">
@@ -33,9 +33,6 @@ export let data:any={};
                 {#if index>4&&index<9}
                 <PrimaryCard  slug="{post.slug}" image={post.image} category="{data.name}" date="Jan 01, 2045" title="{post.title}"/>
                 {/if}
-                <!-- <PrimaryCard  slug="news-1" image="img/news-700x435-1.jpg" category="Business" date="Jan 01, 2045" title="Lorem ipsum dolor sit amet elit. Proin vitae porta diam..."/>
-                <PrimaryCard  slug="news-1" image="img/news-700x435-2.jpg" category="Business" date="Jan 01, 2045" title="Lorem ipsum dolor sit amet elit. Proin vitae porta diam..."/>
-                <PrimaryCard  slug="news-1" image="img/news-700x435-3.jpg" category="Business" date="Jan 01, 2045" title="Lorem ipsum dolor sit amet elit. Proin vitae porta diam..."/> -->
          {/each}
             </div>
         </div>

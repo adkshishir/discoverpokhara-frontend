@@ -7,7 +7,8 @@ export const load=async({ params,fetch }) => {
     const tags=await getApi(TAGS);
     let data={
         category:category.data.category,
-        tags:tags.tags
+        tags:tags.tags,
+        seo:category.data.seo
     }
     return data
 }

@@ -11,14 +11,13 @@
        }
        onMount(async()=>{
      await fetchData();
-
        })
 </script>
 
 <!-- Tags Start -->
         <div class="d-flex flex-wrap m-n1">
             {#each tags as tag}
-            <a href="{FRONTEND_URL}/tags/{tag.slug}" class="btn btn-sm btn-outline-secondary m-1">{tag.name}</a>
+            <a data-sveltekit-reload href="{FRONTEND_URL}/tags/{tag.slug}" class="btn btn-sm btn-outline-secondary m-1">{tag.name}</a>
             {/each}
         </div>
 <!-- Tags End -->

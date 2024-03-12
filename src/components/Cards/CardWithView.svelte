@@ -23,7 +23,7 @@
 				<a class="text-body" href={slug}><small>{date}</small></a>
 			</div>
 			<a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href={slug}
-				>{title}</a
+				>{title?.slice(0, 40)}{title?.length > 40 ? '...' : ''}</a
 			>
 			<p class="m-0">{description}</p>
 		</div>

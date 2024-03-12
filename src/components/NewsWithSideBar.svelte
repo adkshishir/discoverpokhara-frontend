@@ -7,7 +7,7 @@
 	import Tags from './Tags.svelte';
 	export let data: any;
 	export let latest: any;
-    export let tags: { name: string; slug: string }[] = [];
+    // export let tags: { name: string; slug: string }[] = [];
 	
 </script>
 <!-- News With Sidebar Start -->
@@ -21,7 +21,7 @@
 							<h4 class="m-0 text-uppercase font-weight-bold">Latest News</h4>
 							<a
 								class="text-secondary font-weight-medium text-decoration-none"
-								href="/category/{data.name}">View All</a
+								href="/category/{data.slug}">View All</a
 							>
 						</div>
 					</div>
@@ -112,7 +112,7 @@
 							logoClass="fab fa-facebook-f"
 							backgroundColor="#39569C"
 							fansCount="12,345"
-							slug="https://www.facebook.com/"
+							slug="https://www.facebook.com/profile.php?id=61557240062151"
 						></SocialMediaCard>
 						<SocialMediaCard
 							logoClass="fab fa-instagram"
@@ -130,20 +130,15 @@
 							logoClass="fab fa-twitter"
 							backgroundColor="#1DA1F2"
 							fansCount="12,345"
-							slug="https://www.twitter.com/"
+							slug="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
 						></SocialMediaCard>
 						<SocialMediaCard
-							logoClass="fab fa-pinterest"
-							backgroundColor="#BD081B"
+							logoClass="fab fa-reddit"
+							backgroundColor="#FF4500"
 							fansCount="12,345"
-							slug="https://www.pinterest.com/"
+							slug="https://www.reddit.com/"
 						></SocialMediaCard>
-						<SocialMediaCard
-							logoClass="fab fa-vimeo-v"
-							backgroundColor="#055570"
-							fansCount="12,345"
-							slug="https://www.vimeo.com/"
-						></SocialMediaCard>
+						
 					</div>
 				</div>
 				<!-- Social Follow End -->
