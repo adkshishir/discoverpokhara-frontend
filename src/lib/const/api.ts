@@ -1,6 +1,6 @@
 import { PUBLIC_BASE_URL, PUBLIC_FRONTEND_URL,} from "$env/static/public";
 export const BASE_URL=PUBLIC_BASE_URL;
-export const FRONTEND_URL= PUBLIC_FRONTEND_URL;
+export const FRONTEND_URL= 'https://discoverpokhara.vercel.app';
 const API=`${BASE_URL}/api`;
 export const CATEGORIES=`${API}/categories`;
 export const TAGS=`${API}/tags`;
