@@ -11,15 +11,17 @@
 		setTimeout(() => {
 			isLoaded = true;
 		}, 100);
-      data=await getApi(CATEGORIES);
-	 
+    	  data=await getApi(CATEGORIES);
 	});
+
+
+// Example usage
 
 </script>
 
-<!-- <Header />
+<Header />
 <slot />
-<Footer data={data} /> -->
+<Footer data={data} />
 
 <div>
 </div>
@@ -36,5 +38,6 @@
 	s0.parentNode.insertBefore(s1,s0);
 	})();
 	</script>
-	<!--End of Tawk.to Script--><script src="{FRONTEND_URL}/js/main.js"></script>
+	<!-- End of Tawk.to Script -->
+	<script src="{FRONTEND_URL}/js/main.js"></script>
 {/if}
