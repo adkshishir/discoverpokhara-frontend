@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import PrimaryCard from "./Cards/PrimaryCard.svelte";
+	import { FRONTEND_URL } from "$lib/const/api";
 export let data:any={};
 </script>
  <!-- Main News Slider Start -->
+ <img src="/logo.webp" class="image-fluid w-100" alt='Discover Pokhara banner'/>
  <div class="container-fluid">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-7 px-0">
          
             <div class="owl-carousel main-carousel position-relative">
@@ -31,11 +33,11 @@ export let data:any={};
             <div class="row mx-0">
                 {#each data.posts as post,index}
                 {#if index>4&&index<9}
-                <PrimaryCard  slug="{post.slug}" image={post.image} category="{data.name}" date="Jan 01, 2045" title="{post.title}"/>
+                <PrimaryCard   slug="{post.slug}" image={post.image} category="{data.name}" date="Jan 01, 2045" title="{post.title}"/>
                 {/if}
          {/each}
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <!-- Main News Slider End -->

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { FRONTEND_URL } from "$lib/const/api";
+
 	export let image = 'https://via.placeholder.com/700x435';
 	export let category = 'Business';
 	export let date = 'Jan 01, 2045';
@@ -22,7 +24,7 @@
 				>
 				<a class="text-body" href={slug}><small>{date}</small></a>
 			</div>
-			<a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href={slug}
+			<a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="{FRONTEND_URL}/{slug}"
 				>{title?.slice(0, 40)}{title?.length > 40 ? '...' : ''}</a
 			>
 			<p class="m-0">{description}</p>
