@@ -1,5 +1,6 @@
 <script lang="ts">
-	import BreakingNews from "../components/BreakingNews.svelte";
+	import Services from "../common/Services.svelte";
+import BreakingNews from "../components/BreakingNews.svelte";
 	import FeatureNews from "../components/FeatureNews.svelte";
     import MainNews from "../components/MainNews.svelte";
 	import NewsWithSideBar from "../components/NewsWithSideBar.svelte";
@@ -23,10 +24,11 @@
 	<meta property="og:description" content="Discover Pokhara ,Explore with us " />
 	<meta property="og:url" content="https://discoverpokhara.com" />
 </svelte:head>
+<MainNews data={data.tags[0]}/>
 <BreakingNews data={data.tags[1].posts}/>
- <MainNews data={data.tags[0]}/>
- <FeatureNews data={data.tags[2]}/>
- <NewsWithSideBar data={data.tags[3]} latest={data.latest} tags={tagNames} />
+ <!-- <FeatureNews data={data.tags[2]}/> -->
+ <!-- <NewsWithSideBar data={data.tags[3]} latest={data.latest} tags={tagNames} /> -->
+ <Services/>
 
  
 

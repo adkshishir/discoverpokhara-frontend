@@ -5,10 +5,10 @@
 export let data:any={};
 </script>
  <!-- Main News Slider Start -->
- <img src="/logo.webp" class="image-fluid w-100" alt='Discover Pokhara banner'/>
  <div class="container-fluid">
-    <!-- <div class="row">
-        <div class="col-lg-7 px-0">
+     <div class="row">
+        <img src="/logo1.webp" class="image-fluid " style="height: 62vh;width: 100%;" alt='Discover Pokhara banner'/>
+        <!-- <div class="col-lg-7 px-0">
          
             <div class="owl-carousel main-carousel position-relative">
               {#each data.posts as post,index}
@@ -37,7 +37,7 @@ export let data:any={};
                 {/if}
          {/each}
             </div>
-        </div>
-    </div> -->
+        </div> -->
+    </div>
 </div>
 <!-- Main News Slider End -->

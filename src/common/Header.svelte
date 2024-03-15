@@ -2,6 +2,8 @@
 	import { CATEGORIES } from '$lib/const/api';
 	import getApi from '$lib/helper/get';
 	import { onMount } from 'svelte';
+	import TopHead from './TopHead.svelte';
+	import { PUBLIC_FRONTEND_URL } from '$env/static/public';
 	let categories: any;
 	onMount(async () => {
 		let data = await getApi(CATEGORIES);
@@ -57,7 +59,7 @@
 			</nav>
 		</div>
 	</div>
-	<div class="row align-items-center bg-white py-3 px-lg-5">
+	<!-- <div class="row align-items-center bg-white py-3 px-lg-5">
 		<div class="col-lg-4">
 			<a href="/" data-sveltekit-reload class="navbar-brand p-0 d-none d-lg-block">
 				<h1 class="m-0 display-4 text-uppercase text-primary">
@@ -65,10 +67,11 @@
 				</h1>
 			</a>
 		</div>
-		<!-- <div class="col-lg-8 text-center text-lg-right">
+		<div class="col-lg-8 text-center text-lg-right">
             <a href="https://htmlcodex.com"><img class="img-fluid" src="img/ads-728x90.png" alt=""></a>
-        </div> -->
-	</div>
+        </div>
+	</div> -->
+	<TopHead/>
 </div>
 <!-- Topbar End -->
 
@@ -96,7 +99,7 @@
 					{#each categories as category,index}
 					{#if index<=6}
 						<div class="nav-item dropdown">
-							<a href="#top"  class="nav-link dropdown-toggle" data-toggle="dropdown">{category.name}</a>
+							<a href="{PUBLIC_FRONTEND_URL}/category/{category.slug}" data-sveltekit-reload  class="nav-link dropdown-toggle" style="cursor:pointer" data-toggle="">{category.name}</a>
 							<div class="dropdown-menu rounded-0 m-0" style="max-height: 300px;overflow-y: auto">
 								{#each category.posts as post}
 									<a href="/{post.slug}" data-sveltekit-reload class="dropdown-item">{post.title}</a>
@@ -115,10 +118,7 @@
 						><i class="fa fa-search"></i></button
 					>
 				</div>
-				
-				<button class="ml-2 input-group-text bg-primary text-dark border-0 px-3"
-							><i class="fa fa-phone"></i></button
-						>
+			
 			</div>
 		</div>
 	</nav>
