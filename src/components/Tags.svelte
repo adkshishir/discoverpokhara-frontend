@@ -4,20 +4,20 @@
 	import getApi from "$lib/helper/get";
 	import { onMount } from "svelte";
 
-    export let tags: { name: string; slug: string }[] = [];
+    export let tags: { category:{slug:string};name: string; slug: string }[] = [];
        async function fetchData() {
         let data = await getApi(TAGS);
         tags = data.tags;
        }
        onMount(async()=>{
-     await fetchData();
+      await fetchData();
        })
 </script>
 
 <!-- Tags Start -->
         <div class="d-flex flex-wrap m-n1">
             {#each tags as tag}
-            <a data-sveltekit-reload href="{FRONTEND_URL}/tags/{tag.slug}" class="btn btn-sm btn-outline-secondary m-1">{tag.name}</a>
+            <a data-sveltekit-reload href="{FRONTEND_URL}/{tag.category.slug}/{tag.slug}" class="btn btn-sm btn-outline-secondary m-1">{tag.name}</a>
             {/each}
         </div>
 <!-- Tags End -->

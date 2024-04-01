@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {FRONTEND_URL} from '$lib/const/api'
 
-    export let data:{title:string,slug:string}[] ;
+    export let data:{title:string,link:string}[] ;
 </script>
 
 
@@ -16,8 +16,8 @@
                     <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3"
                         style="width: calc(100% - 170px); padding-right: 90px;">
                         
-                        {#each data as {title,slug}}
-                        <div title="{title}" class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="{FRONTEND_URL}/{slug}">{title}</a></div>
+                        {#each data as {title,link}}
+                        <div title="{title}" class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" target="_blank" href="{link}">{title}</a></div>
                         <!-- <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit. Proin interdum lacus eget ante tincidunt, sed faucibus nisl sodales</a></div> -->
                         {/each}
                     </div>

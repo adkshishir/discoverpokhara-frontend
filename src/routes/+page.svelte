@@ -1,13 +1,11 @@
 <script lang="ts">
 	import Services from "../common/Services.svelte";
+	import TopHead from "../common/TopHead.svelte";
 import BreakingNews from "../components/BreakingNews.svelte";
 	import FeatureNews from "../components/FeatureNews.svelte";
     import MainNews from "../components/MainNews.svelte";
 	import NewsWithSideBar from "../components/NewsWithSideBar.svelte";
-   export let data;
-   let tagNames:{name:string,slug:string}[]=[];
-   tagNames = data?.tags?.map((tag:{name:string,slug:string}) => {return {name:tag.name,slug:tag.slug}});
-
+  export let data;
 </script>
 <svelte:head>
 	<!-- <meta name="robots" content="noindex, nofollow" /> -->
@@ -24,11 +22,14 @@ import BreakingNews from "../components/BreakingNews.svelte";
 	<meta property="og:description" content="Discover Pokhara ,Explore with us " />
 	<meta property="og:url" content="https://discoverpokhara.com" />
 </svelte:head>
-<MainNews data={data.tags[0]}/>
-<BreakingNews data={data.tags[1].posts}/>
+
+<MainNews data={data.data.recentPost}/>
+<BreakingNews data={data.data.flashNews}/>
+<Services data={data}/>
+
  <!-- <FeatureNews data={data.tags[2]}/> -->
  <!-- <NewsWithSideBar data={data.tags[3]} latest={data.latest} tags={tagNames} /> -->
- <Services/>
+ <!-- <Services/> -->
 
  
 

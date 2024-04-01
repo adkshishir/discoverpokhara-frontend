@@ -1,15 +1,14 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import CardWithSideImageLg from './Cards/CardWithSideImageLg.svelte';
 	import CardWithSideImageSm from './Cards/CardWithSideImageSm.svelte';
 	import CardWithView from './Cards/CardWithView.svelte';
 	import SocialMediaCard from './Cards/SocialMediaCard.svelte';
-	import PopularNews from './PopularNews.svelte';
 	import Tags from './Tags.svelte';
-	import { FRONTEND_URL } from '$lib/const/api';
+	import TagPagePopularNews from './TagPagePopularNews.svelte';
 	export let data: any;
 	export let latest: any;
 	export let popular: any;
+
 </script>
 
 <!-- News With Sidebar Start -->
@@ -19,24 +18,24 @@
 			class="img-fluid mb-5 mx-auto"
 			style="max-height: 50vh;object-fit: cover; width: 100%;"
 			src={data?.image}
-			alt={data?.title}
+			alt={data?.data?.name}
 		/>
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="row">
-					{#if latest?.length > 0}
-					{#each latest as post, index}
+					{#if  typeof latest !== 'undefined'&&latest?.length > 0}
+					{#each latest as last, index}
 						{#if index < 2}
 							<CardWithView
-								image={post?.image}
-								category={data?.name}
-								title={post?.data?.title.slice(0, 20)}
-								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-								description={post?.data?.description}
-								date={post?.data?.updated_at.slice(0, 10)}
-								comments={post?.data?.comments.length}
-								authorName={post?.data?.author?.name}
-								authorImage={post?.data?.author?.image}
+								image={last?.image||" "}
+								category={last?.data?.category?.name}
+								title={last?.data?.title?.slice(0, 20)}
+								slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
+								description={last?.data?.description}
+								date={last?.data?.updated_at?.slice(0, 10)}
+								comments={last?.data?.comments?.length}
+								authorName={last?.data?.author?.name}
+								authorImage={last?.data?.author?.image}
 							/>
 						{:else if index >= 2 && index < 4}
 							{#if index == 2}
@@ -45,34 +44,34 @@
 								</div>
 							{/if}
 							<CardWithView
-								image={post?.image}
-								category={data?.name}
-								date={post?.data?.updated_at.slice(0, 10)}
-								title={post?.data?.title.slice(0, 20)}
-								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-								description={post?.data?.description}
-								comments={post?.data?.comments.length}
-								authorName={post?.data?.author?.name}
-								authorImage={post?.data?.author?.image}
+								image={last?.image||" "}
+								category={last?.data?.category?.name}
+								title={last?.data?.title?.slice(0, 20)}
+								slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
+								description={last?.data?.description}
+								date={last?.data?.updated_at?.slice(0, 10)}
+								comments={last?.data?.comments?.length}
+								authorName={last?.data?.author?.name}
+								authorImage={last?.data?.author?.image}
 							/>
 						{:else if index >= 4 && index < 8}
 							<div class="col-lg-6">
 								{#if index < 6}
 									<CardWithSideImageSm
-										image={post?.image}
-										category={data?.name}
-										date={post?.data?.updated_at.slice(0, 10)}
-										title={post?.data?.title.slice(0, 30)}
-										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+										image={data?.image}
+										category={last?.data?.category?.name}
+                                        title={last?.data?.title?.slice(0, 20)}
+                                        slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
+                                        date={last?.data?.updated_at?.slice(0, 10)}
 									/>
 								{:else}
-									<CardWithSideImageSm
-										image={post?.image}
-										category={data?.name}
-										date={post?.data?.updated_at.slice(0, 10)}
-										title={post?.data?.title.slice(0, 30)}
-										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-									/>
+                                <CardWithSideImageSm
+                                image={data?.image}
+                                category={last?.data?.category?.name}
+                                title={last?.data?.title?.slice(0, 20)}
+                                slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
+                                date={last?.data?.updated_at?.slice(0, 10)}
+                            />
 								{/if}
 							</div>
 						{:else if index == 8}
@@ -80,33 +79,34 @@
 								<a href="/"><img class="img-fluid w-100" src="img/ads-728x90.png" alt="" /></a>
 							</div>
 							<CardWithSideImageLg
-								image={post?.image}
-								category={data?.name}
-								date={post?.data?.updated_at.slice(0, 10)}
-								title={post?.data?.title}
-								authorImage={post?.data?.author.image}
-								authorName={post?.data?.author.name}
-								comments={post?.data?.comments.length}
-								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+								image={data?.image}
+                                category={last?.data?.category?.name}
+                                title={last?.data?.title?.slice(0, 20)}
+                                slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
+                                date={last?.data?.updated_at?.slice(0, 10)}
+								authorImage={last?.data?.author?.image}
+								authorName={last?.data?.author?.name}
+								comments={last?.data?.comments?.length}
+								
 							/>
 						{:else if index >= 9 && index < 13}
 							<div class="col-lg-6">
 								{#if index < 11}
-									<CardWithSideImageSm
-										image={post?.image}
-										category={data?.name}
-										date={post?.data?.updated_at.slice(0, 10)}
-										title={post?.data?.title.slice(0, 30)}
-										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-									/>
+                                <CardWithSideImageSm
+                                image={data?.image}
+                                category={last?.data?.category?.name}
+                                title={last?.data?.title?.slice(0, 20)}
+                                slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
+                                date={last?.data?.updated_at?.slice(0, 10)}
+                            />
 								{:else}
-									<CardWithSideImageSm
-										image={post?.image}
-										category={data?.name}
-										date={post?.data?.updated_at.slice(0, 10)}
-										title={post?.data?.title.slice(0, 30)}
-										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-									/>
+                                <CardWithSideImageSm
+                                image={data?.image}
+                                category={last?.data?.category?.name}
+                                title={last?.data?.title?.slice(0, 20)}
+                                slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
+                                date={last?.data?.updated_at?.slice(0, 10)}
+                                 />
 								{/if}
 							</div>
 						{/if}
@@ -156,7 +156,7 @@
 				</div>
 				<!-- Social Follow End-->
 
-				<PopularNews data={popular} categorySlug={data.slug} categoryName={data.name} /> 
+				<TagPagePopularNews tagName={data?.data?.name} tagSlug={data?.data?.slug} data={popular} /> 
 
 				<!-- Ads Start -->
 				<div class="mb-3">
@@ -194,11 +194,6 @@
 					</div>
 					<div class="bg-white border border-top-0 p-3">
 						<Tags />
-						<!-- <div class="d-flex flex-wrap m-n1">
-                            {#each tags as tag}
-                            <a href="{tag.slug}" class="btn btn-sm btn-outline-secondary m-1">{tag.name}</a>
-                            {/each}
-						</div> -->
 					</div>
 				</div>
 				<!-- Tags End -->

@@ -14,7 +14,7 @@
 	export let description = 'Lorem ipsum dolor sit amet elit';
 </script>
 
-<div class="col-lg-6 {className}">
+<div class=" col-lg-6 {className}">
 	<div class="position-relative mb-3">
 		<img class="img-fluid w-100" src={image} alt={title} style="object-fit: cover;" />
 		<div class="bg-white border border-top-0 p-4">

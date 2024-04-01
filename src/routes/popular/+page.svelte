@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {FRONTEND_URL} from '$lib/const/api';
-    import SocialMediaCard from '../../../components/Cards/SocialMediaCard.svelte';
-	import Tags from '../../../components/Tags.svelte';
+    import SocialMediaCard from '../../components/Cards/SocialMediaCard.svelte';
+	import Tags from '../../components/Tags.svelte';
 	export let data;
 	
 </script>

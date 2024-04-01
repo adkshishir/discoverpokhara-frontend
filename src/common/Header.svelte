@@ -1,13 +1,17 @@
 <script lang="ts">
-	import { CATEGORIES } from '$lib/const/api';
+	import { CATEGORIES, FRONTEND_URL } from '$lib/const/api';
 	import getApi from '$lib/helper/get';
 	import { onMount } from 'svelte';
 	import TopHead from './TopHead.svelte';
 	import { PUBLIC_FRONTEND_URL } from '$env/static/public';
-	let categories: any;
+	let categories: any[];
+	let checkSmallDevice = false;
 	onMount(async () => {
 		let data = await getApi(CATEGORIES);
 		categories = data.categories;
+		if(window.innerWidth < 992){
+			checkSmallDevice = true
+		}
 	});
 </script>
 
@@ -99,11 +103,13 @@
 					{#each categories as category,index}
 					{#if index<=6}
 						<div class="nav-item dropdown">
-							<a href="{PUBLIC_FRONTEND_URL}/category/{category.slug}" data-sveltekit-reload  class="nav-link dropdown-toggle" style="cursor:pointer" data-toggle="">{category.name}</a>
-							<div class="dropdown-menu rounded-0 m-0" style="max-height: 300px;overflow-y: auto">
-								{#each category.posts as post}
-									<a href="/{post.slug}" data-sveltekit-reload class="dropdown-item">{post.title}</a>
+							<a href="/{category.slug}#" class="nav-link dropdown-toggle" style="cursor:pointer" data-toggle="">{category.name}</a>
+							<div class="dropdown-menu rounded-0 m-0" style="max-height: 300px;overflow-y: auto;width:500px;max-width: 95vw;overflow-x:auto;">
+							    {#if category?.posts != null}
+								{#each category?.posts as post}
+									<a title="{post.title}" href="/{category.slug}/{category?.tag.slug}/{post.slug}" data-sveltekit-reload class="dropdown-item">{post.title}</a>
 								{/each}
+								{/if}
 							</div>
 						</div>
 						{/if}

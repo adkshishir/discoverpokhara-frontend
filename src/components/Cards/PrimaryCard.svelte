@@ -13,12 +13,16 @@
 
 <div title="{title}" class="col-md-6 px-0 {className}">
     <div class="position-relative overflow-hidden" style="height: 250px;">
-        <img class="img-fluid w-100 h-100" src={image} alt='news' style="object-fit: cover;">
+        <a href="{FRONTEND_URL}/{slug}"><img class="img-fluid h-100 w-100" src={image} alt={title}></a>
         <div class="overlay">
             <div class="mb-2">
+                {#if category}
                 <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                    href="{FRONTEND_URL}/{slug}">{category}</a>
-                <a class="text-white" href={slug}><small>{date}</small></a>
+                href="{FRONTEND_URL}/{slug}">{category}</a>
+                {/if}
+                    {#if date}
+                    <a class="text-white" href={slug}><small>{date}</small></a>
+                    {/if}
             </div>
             <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href={slug}>{title.slice(0, 40)}{title.length > 40 ? '...' : ''}</a>
         </div>

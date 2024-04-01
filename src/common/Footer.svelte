@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<div class="col-lg-3 col-md-6 mb-5">
-			<h5 class="mb-4 text-white text-uppercase font-weight-bold">{data?.name}</h5>
+			<h5 class="mb-4 text-white text-uppercase font-weight-bold">Adventure</h5>
 			{#if data?.categories.length > 0}
 				{#each data?.categories[1].posts as post, index}
 					{#if index < 3}
@@ -49,14 +49,16 @@
 									href="{FRONTEND_URL}/category/{data?.categories[1].slug}"
 									>{data?.categories[1].name}</a
 								>
-								<a data-sveltekit-reload class="text-body" href="{FRONTEND_URL}/{post.slug}"
-									><small>Jan 01, 2045</small></a
-								>
+								<!-- <a data-sveltekit-reload class="text-body" href="{FRONTEND_URL}/{post.slug}"
+									>
+									<small>Jan 01, 2045</small>
+									</a
+								> -->
 							</div>
 							<a
 								data-sveltekit-reload
 								class="small text-body text-uppercase font-weight-medium"
-								href="{FRONTEND_URL}/{post.slug}">{post.title}</a
+								href="{FRONTEND_URL}/{data?.categories[1].slug}/{post.slug}">{post.title}</a
 							>
 						</div>
 					{/if}
@@ -70,7 +72,7 @@
 					{#each data?.categories as tag}
 						<a
 							data-sveltekit-reload
-							href={`${FRONTEND_URL}/category/${tag?.slug}`}
+							href={`${FRONTEND_URL}/${tag?.slug}`}
 							class="btn btn-sm btn-secondary m-1">{tag?.name}</a
 						>
 					{/each}

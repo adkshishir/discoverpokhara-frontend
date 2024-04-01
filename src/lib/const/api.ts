@@ -6,6 +6,7 @@ const API=`${BASE_URL}/api`;
 export const CATEGORIES=`${API}/categories`;
 export const TAGS=`${API}/tags`;
 export const POSTS=`${API}/posts`;
-export const LATEST=`${API}/home`;
+export const HOME=`${API}/home`;
 export const IMAGE_PATH=`${BASE_URL}/${PUBLIC_FILE_PATH}`
 export default API
+
