@@ -11,9 +11,10 @@
 </script>
 
 
-<div title="{title}" class="col-md-6 px-0 {className}">
+<div title="{title}" class="col-md-6 p-1 bg-white {className}">
     <div class="position-relative overflow-hidden" style="height: 250px;">
-        <a href="{FRONTEND_URL}/{slug}"><img class="img-fluid h-100 w-100" src={image} alt={title}></a>
+        <a href="{FRONTEND_URL}/{slug}">
+            <img class=" h-100 w-100 img-increase " style="object-fit: cover;width: 100%;height: 100%;cursor:pointer;z-index: -10;position:abs" src={image} alt={title}></a>
         <div class="overlay">
             <div class="mb-2">
                 {#if category}
@@ -24,7 +25,16 @@
                     <a class="text-white" href={slug}><small>{date}</small></a>
                     {/if}
             </div>
-            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href={slug}>{title.slice(0, 40)}{title.length > 40 ? '...' : ''}</a>
+            <a data-sveltekit-reload class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href={slug}>{title.slice(0, 40)}{title.length > 40 ? '...' : ''}</a>
         </div>
     </div>
 </div>
+
+<style>
+    .img-increase:hover {
+      width: 110%!important;
+      height: 110%!important;
+      transition: all;
+      transition-duration: 300ms;
+    }
+</style>

@@ -9,8 +9,8 @@
 	onMount(async () => {
 		let data = await getApi(CATEGORIES);
 		categories = data.categories;
-		if(window.innerWidth < 992){
-			checkSmallDevice = true
+		if (window.innerWidth < 992) {
+			checkSmallDevice = true;
 		}
 	});
 </script>
@@ -42,22 +42,40 @@
 			<nav class="navbar navbar-expand-sm bg-dark p-0">
 				<ul class="navbar-nav ml-auto mr-n2">
 					<li class="nav-item">
-						<a class="nav-link text-body" target="_blank" href="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"><small class="fab fa-twitter"></small></a>
+						<a
+							class="nav-link text-body"
+							target="_blank"
+							href="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
+							><small class="fab fa-twitter"></small></a
+						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-body" target="_blank" href="https://www.facebook.com/profile.php?id=61557240062151"><small class="fab fa-facebook-f"></small></a>
+						<a
+							class="nav-link text-body"
+							target="_blank"
+							href="https://www.facebook.com/profile.php?id=61557240062151"
+							><small class="fab fa-facebook-f"></small></a
+						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-body" target="_blank" href="/"><small class="fab fa-linkedin-in"></small></a>
+						<a class="nav-link text-body" target="_blank" href="/"
+							><small class="fab fa-linkedin-in"></small></a
+						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-body" target="_blank" href="/"><small class="fab fa-instagram"></small></a>
+						<a class="nav-link text-body" target="_blank" href="/"
+							><small class="fab fa-instagram"></small></a
+						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-body" target="_blank" href="/"><small class="fab fa-google-plus-g"></small></a>
+						<a class="nav-link text-body" target="_blank" href="/"
+							><small class="fab fa-google-plus-g"></small></a
+						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-body" target="_blank" href="/"><small class="fab fa-youtube"></small></a>
+						<a class="nav-link text-body" target="_blank" href="/"
+							><small class="fab fa-youtube"></small></a
+						>
 					</li>
 				</ul>
 			</nav>
@@ -75,7 +93,7 @@
             <a href="https://htmlcodex.com"><img class="img-fluid" src="img/ads-728x90.png" alt=""></a>
         </div>
 	</div> -->
-	<TopHead/>
+	<TopHead />
 </div>
 <!-- Topbar End -->
 
@@ -98,20 +116,39 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
 			<div class="navbar-nav mr-auto py-0">
-                <!-- <a href="/" data-sveltekit-reload class="nav-item nav-link active">Home</a> -->
+				<!-- <a href="/" data-sveltekit-reload class="nav-item nav-link active">Home</a> -->
 				{#if categories != null}
-					{#each categories as category,index}
-					{#if index<=6}
-						<div class="nav-item dropdown">
-							<a href="/{category.slug}#" class="nav-link dropdown-toggle" style="cursor:pointer" data-toggle="">{category.name}</a>
-							<div class="dropdown-menu rounded-0 m-0" style="max-height: 300px;overflow-y: auto;width:500px;max-width: 95vw;overflow-x:auto;">
-							    {#if category?.posts != null}
-								{#each category?.posts as post}
-									<a title="{post.title}" href="/{category.slug}/{category?.tag.slug}/{post.slug}" data-sveltekit-reload class="dropdown-item">{post.title}</a>
-								{/each}
-								{/if}
+					{#each categories as category, index}
+						{#if index <= 6}
+							<div class="nav-item dropdown">
+								<a
+								   data-sveltekit-reload
+									href="/{category.slug}#"
+									class="nav-link dropdown-toggle"
+									style="cursor:pointer"
+									data-toggle="">{category.name}</a
+								>
+								
+								<div
+									class="dropdown-menu rounded-0 m-0"
+									style="max-height: 300px;overflow-y: auto;width:500px;max-width: 95vw;overflow-x:auto;"
+								>
+									{#if category?.posts != null}
+										{#each category?.posts as post}
+											<a
+												title={post.title}
+												href="/{category.slug}/{category?.tag.slug}/{post.slug}"
+												data-sveltekit-reload
+												class="dropdown-item">{post.title}</a
+											>
+										{/each}
+									{:else}
+										<a href="/{category.slug}" data-sveltekit-reload class="dropdown-item"
+											>View All</a
+										>
+									{/if}
+								</div>
 							</div>
-						</div>
 						{/if}
 					{/each}
 				{/if}
@@ -124,16 +161,20 @@
 						><i class="fa fa-search"></i></button
 					>
 				</div>
-			
 			</div>
 		</div>
 	</nav>
 </div>
+
 <!-- Navbar End -->
 
 <style>
-    .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-}
+	.dropdown:hover .dropdown-menu {
+		display: block;
+		margin-top: 0;
+	}
+	.nav-link:hover {
+		color: var(--primary);
+		background-color: transparent !important;
+	}
 </style>

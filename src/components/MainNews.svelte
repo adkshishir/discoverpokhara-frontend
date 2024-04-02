@@ -7,7 +7,7 @@ export let data:any={};
  <!-- Main News Slider Start -->
  <div class="container-fluid">
      <div class="row">
-        <img src="/logo1.webp" class="image-fluid " style="height: 62vh;width: 100%;" alt='Discover Pokhara banner'/>
+        <img src="/logo1.webp" class="image-fluid " style="height: 62vh;width: 100%;object-fit: cover " alt='Discover Pokhara banner'/>
         <!-- <div class="col-lg-7 px-0">
          
             <div class="owl-carousel main-carousel position-relative">

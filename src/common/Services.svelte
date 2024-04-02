@@ -11,7 +11,7 @@
 </script>
 
 <div class="container">
-	<div class="row mt-4">
+	<div class="row  mt-4" style="">
 		{#if data?.categories?.length > 0}
 			{#each data?.categories as category, index}
 				<PrimaryCard
