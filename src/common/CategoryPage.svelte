@@ -113,7 +113,9 @@
 							{#if data?.post?.contents?.length>0}
 							{#each data?.post?.contents as content}
 							<h4 id="{content.title}" class="mt-4">{content.title}</h4>
-							{@html content.content}
+							<article>
+								{@html content.content}
+							</article>
 							<div class="d-flex  container my-4">
                           {#if content.special_sections.length>0}
 						  {#each content.special_sections as special_section}

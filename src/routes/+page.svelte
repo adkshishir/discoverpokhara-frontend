@@ -6,7 +6,6 @@ import BreakingNews from "../components/BreakingNews.svelte";
     import MainNews from "../components/MainNews.svelte";
 	import NewsWithSideBar from "../components/NewsWithSideBar.svelte";
   export let data;
-  console.log(data)
 </script>
 <svelte:head>
 	<!-- <meta name="robots" content="noindex, nofollow" /> -->

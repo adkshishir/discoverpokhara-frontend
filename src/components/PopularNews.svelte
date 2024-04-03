@@ -6,7 +6,6 @@ import { onMount } from "svelte";
     export let data:any;
     export let categoryName:string;
     export let categorySlug:string;
-    console.log(data)
   </script>
 <!-- Popular News Start -->
 <div class="mb-3">

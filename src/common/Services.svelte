@@ -7,11 +7,10 @@
 	import { categories } from '$lib/store';
 
 	export let data: any;
-
 </script>
 
 <div class="container">
-	<div class="row  mt-4" style="">
+	<div class="row mt-4" style="">
 		{#if data?.categories?.length > 0}
 			{#each data?.categories as category, index}
 				<PrimaryCard
@@ -73,10 +72,20 @@
 
 	<div class="row">
 		<div class="col-md-12 mt-3 text-center">
-			<div class="card" style="height: 400px;">
+			<div class="card" style="">
 				<div class="card-body">
-					<h5 class="card-title">Who are we ?</h5>
-					<a href="/nepal"> Read more</a>
+					<!-- <h5 class="card-title">Who are we ?</h5> -->
+					<p class="my-4 card-text"style='max-width: 50%;margin:auto;'>
+						<strong class="">Namaste! </strong> <br> <br>
+						We are a team of travel and blog enthusiasts, on a journey to make travel in
+						Pokhara more easier than ever. With the slogan of "Pokhara at your fingertips”, we are
+						using this website to make tourists who visit Pokhara, feel at home. <br> <br> With Discover
+						Pokhara, we plan to help a lot of people and answer most of their questions and queries
+						about everything in Pokhara. We know it’s a lot to cover but stay with us, we will make
+						sure every questions are answered in couple of years. <br> <br> You can <a href="/contact-us">contact us</a> if you have any
+						queries, or want us to explore and write about any places in your mind. <br> We will try to
+						help you to the best of our abilities. <br> <br>  <strong> Welcome to Pokhara…!</strong>
+					</p>
 				</div>
 			</div>
 		</div>

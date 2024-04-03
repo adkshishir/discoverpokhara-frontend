@@ -9,7 +9,7 @@
 			</h1>
 		</a> -->
 		<div class="d-flex align-items-center col-lg-4 justify-content-around">
-			<h5 class="mx-3 mb-0 text-center">A Tagline here</h5>
+			<h4 class="mx-3 mb-0 text-center">Pokhara at your fingertips</h4>
 		</div>
     <div class="input-group col-lg-4 d-flex align-items-center justify-content-end">
 
