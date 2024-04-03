@@ -122,7 +122,7 @@
 						{#if index <= 6}
 							<div class="nav-item dropdown">
 								<a
-								   data-sveltekit-reload
+								   
 									href="/{category.slug}#"
 									class="nav-link dropdown-toggle"
 									style="cursor:pointer"
@@ -174,7 +174,7 @@
 		margin-top: 0;
 	}
 	.nav-link:hover {
-		color: var(--primary);
+		color: var(--primary)!important ;
 		background-color: transparent !important;
 	}
 </style>
