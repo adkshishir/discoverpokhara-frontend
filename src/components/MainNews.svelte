@@ -1,0 +1,57 @@
+<script lang="ts">
+	import PrimaryCard from "./Cards/PrimaryCard.svelte";
+export let data:any={};
+console.log(data)
+</script>
+ <!-- Main News Slider Start -->
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-7 px-0">
+            
+            <div class="owl-carousel main-carousel position-relative">
+                <div class="position-relative overflow-hidden" style="height: 500px;">
+                    <img class="img-fluid h-100" src="img/news-800x500-1.jpg" style="object-fit: cover;">
+                    <div class="overlay">
+                        <div class="mb-2">
+                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                href="">Business</a>
+                            <a class="text-white" href="">Jan 01, 2045</a>
+                        </div>
+                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                    </div>
+                </div>
+                <div class="position-relative overflow-hidden" style="height: 500px;">
+                    <img class="img-fluid h-100" src="img/news-800x500-2.jpg" style="object-fit: cover;">
+                    <div class="overlay">
+                        <div class="mb-2">
+                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                href="">Business</a>
+                            <a class="text-white" href="">Jan 01, 2045</a>
+                        </div>
+                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                    </div>
+                </div>
+                <div class="position-relative overflow-hidden" style="height: 500px;">
+                    <img class="img-fluid h-100" src="img/news-800x500-3.jpg" style="object-fit: cover;">
+                    <div class="overlay">
+                        <div class="mb-2">
+                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                href="">Business</a>
+                            <a class="text-white" href="">Jan 01, 2045</a>
+                        </div>
+                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 px-0">
+            <div class="row mx-0">
+                <PrimaryCard  slug="news-1" image="img/news-700x435-4.jpg" category="Business" date="Jan 01, 2045" title="Lorem ipsum dolor sit amet elit. Proin vitae porta diam..."/>
+                <PrimaryCard  slug="news-1" image="img/news-700x435-1.jpg" category="Business" date="Jan 01, 2045" title="Lorem ipsum dolor sit amet elit. Proin vitae porta diam..."/>
+                <PrimaryCard  slug="news-1" image="img/news-700x435-2.jpg" category="Business" date="Jan 01, 2045" title="Lorem ipsum dolor sit amet elit. Proin vitae porta diam..."/>
+                <PrimaryCard  slug="news-1" image="img/news-700x435-3.jpg" category="Business" date="Jan 01, 2045" title="Lorem ipsum dolor sit amet elit. Proin vitae porta diam..."/>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main News Slider End -->
