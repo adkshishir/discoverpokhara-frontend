@@ -103,7 +103,7 @@
 		<a data-sveltekit-reload href="/" class="navbar-brand d-block d-lg-none">
 			<h1 class="m-0 display-4 text-uppercase text-primary">
 				Discover <span class="text-white font-weight-normal">Pkr</span>
-				<!-- <span class="w-50"><img class="img-fluid w-50" src="/logo.webp" alt="Discover Pokhara" /></span> -->
+				<!-- <span class="w-50"><img class="img-fluid w-50" src="/logo.webp" alt="Wander Pokhara" /></span> -->
 			</h1>
 		</a>
 		<button

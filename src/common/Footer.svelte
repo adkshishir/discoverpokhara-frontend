@@ -12,7 +12,7 @@
 			<h5 class="mb-4 text-white text-uppercase font-weight-bold">Get In Touch</h5>
 			<p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i>Pokhara, Nepal</p>
 			<p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-			<p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>info@discoverpokhara.com</p>
+			<p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>info@wanderpokhara.com</p>
 			<h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Follow Us</h6>
 			<div class="d-flex justify-content-start">
 				<a
@@ -106,7 +106,7 @@
 </div>
 <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
 	<p class="m-0 text-center">
-		&copy; <a data-sveltekit-reload href="https://discoverpokhara.com">Discover Pokhara</a>. All
+		&copy; <a data-sveltekit-reload href="https://discoverpokhara.com">Wander Pokhara</a>. All
 		Rights Reserved.
 	</p>
 </div>

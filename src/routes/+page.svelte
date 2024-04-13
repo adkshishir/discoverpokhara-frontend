@@ -10,16 +10,16 @@ import BreakingNews from "../components/BreakingNews.svelte";
 <svelte:head>
 	<!-- <meta name="robots" content="noindex, nofollow" /> -->
 	<!-- <meta name="robots" content="index, follow" /> -->
-	<title>Discover Pokhara</title>
-	<meta name="title" content="Discover Pokhara" />
+	<title>Wander Pokhara</title>
+	<meta name="title" content="Wander Pokhara" />
 	<meta name="description" content="Explore with us . #Pokhara" />
-	<meta name="keywords" content="Discover Pokhara, pokhara, Gandaki, Bindabasini, Fewa lake, World Peace pacoda, Nepal,thingstodoinpokhara, " />
-	<meta name="twitter:card" content="We are Discover Pokhara. We helps you to Explore Pokhara"/>
+	<meta name="keywords" content="Wander Pokhara, pokhara, Gandaki, Bindabasini, Fewa lake, World Peace pacoda, Nepal,thingstodoinpokhara, " />
+	<meta name="twitter:card" content="We are Wander Pokhara. We helps you to Explore Pokhara"/>
     <meta name="twitter:site" content="@discoverpokhara" />
-	<meta name="author" content="Discover Pokhara" />
-	<meta property="og:title" content="Discover Pokhara" />
+	<meta name="author" content="Wander Pokhara" />
+	<meta property="og:title" content="Wander Pokhara" />
 	<meta property="og:image" content="/logo1.webp" />
-	<meta property="og:description" content="Discover Pokhara ,Explore with us " />
+	<meta property="og:description" content="Wander Pokhara ,Explore with us " />
 	<meta property="og:url" content="https://discoverpokhara.com" />
 </svelte:head>
 
