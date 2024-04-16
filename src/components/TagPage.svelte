@@ -28,7 +28,7 @@
 						{#if index < 2}
 							<CardWithView
 								image={last?.image||" "}
-								category={last?.data?.category?.name}
+								category={last?.data?.category?.title}
 								title={last?.data?.title?.slice(0, 20)}
 								slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
 								description={last?.data?.description}
@@ -45,7 +45,7 @@
 							{/if}
 							<CardWithView
 								image={last?.image||" "}
-								category={last?.data?.category?.name}
+								category={last?.data?.category?.title}
 								title={last?.data?.title?.slice(0, 20)}
 								slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
 								description={last?.data?.description}
@@ -59,7 +59,7 @@
 								{#if index < 6}
 									<CardWithSideImageSm
 										image={data?.image}
-										category={last?.data?.category?.name}
+										category={last?.data?.category?.title}
                                         title={last?.data?.title?.slice(0, 20)}
                                         slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
                                         date={last?.data?.updated_at?.slice(0, 10)}
@@ -67,7 +67,7 @@
 								{:else}
                                 <CardWithSideImageSm
                                 image={data?.image}
-                                category={last?.data?.category?.name}
+                                category={last?.data?.category?.title}
                                 title={last?.data?.title?.slice(0, 20)}
                                 slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
                                 date={last?.data?.updated_at?.slice(0, 10)}
@@ -80,7 +80,7 @@
 							</div>
 							<CardWithSideImageLg
 								image={data?.image}
-                                category={last?.data?.category?.name}
+                                category={last?.data?.category?.title}
                                 title={last?.data?.title?.slice(0, 20)}
                                 slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
                                 date={last?.data?.updated_at?.slice(0, 10)}
@@ -94,7 +94,7 @@
 								{#if index < 11}
                                 <CardWithSideImageSm
                                 image={data?.image}
-                                category={last?.data?.category?.name}
+                                category={last?.data?.category?.title}
                                 title={last?.data?.title?.slice(0, 20)}
                                 slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
                                 date={last?.data?.updated_at?.slice(0, 10)}
@@ -102,7 +102,7 @@
 								{:else}
                                 <CardWithSideImageSm
                                 image={data?.image}
-                                category={last?.data?.category?.name}
+                                category={last?.data?.category?.title}
                                 title={last?.data?.title?.slice(0, 20)}
                                 slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
                                 date={last?.data?.updated_at?.slice(0, 10)}
@@ -156,7 +156,7 @@
 				</div>
 				<!-- Social Follow End-->
 
-				<TagPagePopularNews tagName={data?.data?.name} tagSlug={data?.data?.slug} data={popular} /> 
+				<TagPagePopularNews tagName={data?.data?.title} tagSlug={data?.data?.slug} data={popular} /> 
 
 				<!-- Ads Start -->
 				<div class="mb-3">

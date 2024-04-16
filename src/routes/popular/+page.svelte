@@ -43,7 +43,7 @@
 					>
 				      	{#each data?.relatedPost as relatedPost}
 						<div class="text-truncate">
-							<a class="text-secondary text-uppercase font-weight-semi-bold" href="/{relatedPost.slug}">
+							<a class="text-secondary text-uppercase font-weight-semi-bold" href="/{relatedpost?.slug}">
 								{relatedPost.title}</a
 							>
 						</div>
@@ -250,11 +250,11 @@
 								<div class="mb-2">
 									<a
 										class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-										href="/{relatedPost.slug}">Business</a
+										href="/{relatedpost?.slug}">Business</a
 									>
-									<a class="text-body" href="/{relatedPost.slug}"><small>Jan 01, 2045</small></a>
+									<a class="text-body" href="/{relatedpost?.slug}"><small>Jan 01, 2045</small></a>
 								</div>
-								<a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="/{relatedPost.slug}"
+								<a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="/{relatedpost?.slug}"
 									>{relatedPost.title}</a
 								>
 							</div>

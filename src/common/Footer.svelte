@@ -3,6 +3,7 @@
 	import { FRONTEND_URL } from '$lib/const/api';
 
 	export let data: any;
+	console.log(data,"slug............")
 </script>
 
 <!-- Footer Start -->
@@ -38,7 +39,7 @@
 		</div>
 		<div class="col-lg-3 col-md-6 mb-5">
 			<h5 class="mb-4 text-white text-uppercase font-weight-bold">Adventure</h5>
-			{#if data?.categories.length > 0}
+			{#if data?.categories?.length > 0}
 				{#each data?.categories[1].posts as post, index}
 					{#if index < 3}
 						<div class="mb-3">
@@ -46,10 +47,10 @@
 								<a
 									data-sveltekit-reload
 									class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-									href="{FRONTEND_URL}/category/{data?.categories[1].slug}"
-									>{data?.categories[1].name}</a
+									href="{FRONTEND_URL}/category/{data?.categories[1]?.slug}"
+									>{data?.categories[1]?.title}</a
 								>
-								<!-- <a data-sveltekit-reload class="text-body" href="{FRONTEND_URL}/{post.slug}"
+								<!-- <a data-sveltekit-reload class="text-body" href="{FRONTEND_URL}/{post?.slug}"
 									>
 									<small>Jan 01, 2045</small>
 									</a
@@ -58,7 +59,7 @@
 							<a
 								data-sveltekit-reload
 								class="small text-body text-uppercase font-weight-medium"
-								href="{FRONTEND_URL}/{data?.categories[1].slug}/{post.slug}">{post.title}</a
+								href="{FRONTEND_URL}/{data?.categories[1]?.slug}/{post?.slug}">{post?.title}</a
 							>
 						</div>
 					{/if}
@@ -73,7 +74,7 @@
 						<a
 							data-sveltekit-reload
 							href={`${FRONTEND_URL}/${tag?.slug}`}
-							class="btn btn-sm btn-secondary m-1">{tag?.name}</a
+							class="btn btn-sm btn-secondary m-1">{tag?.title}</a
 						>
 					{/each}
 				{/if}

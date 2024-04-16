@@ -14,11 +14,11 @@
 		{#if data?.categories?.length > 0}
 			{#each data?.categories as category, index}
 				<PrimaryCard
-					slug={`/${category.slug}`}
+					slug={`/${category?.slug}`}
 					image={category?.image}
 					category=""
 					date=""
-					title={category?.name}
+					title={category?.title}
 				/>
 			{/each}
 		{/if}
@@ -33,8 +33,8 @@
 					{#each data?.data?.recentPost as post, index}
 						<div class="card-container text-start">
 							<CardWithSideImageSm
-								slug={`${post.data.category.slug}/${post.data.tags[0].slug}/${post.data.slug}`}
-								image={post.image}
+								slug={`${post?.data?.category?.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+								image={post?.image}
 								category="Popular"
 								date="Jan 01, 2045"
 								title={post.data?.title}
@@ -56,7 +56,7 @@
 					{#each data?.data?.recentPost as post, index}
 						{#if index < 4}
 							<PrimaryCard
-								slug={`${post.data.category.slug}/${post.data.tags[0].slug}/${post.data.slug}`}
+								slug={`${post?.data?.category?.slug}/${post.data.tags[0]?.slug}/${post.data?.slug}`}
 								image={post.image}
 								category="Latest"
 								date="Jan 01, 2045"

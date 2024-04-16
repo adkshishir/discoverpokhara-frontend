@@ -1,6 +1,4 @@
 <script lang="ts">
-	import {FRONTEND_URL} from '$lib/const/api'
-
     export let data:{title:string,link:string}[] ;
 </script>
 

@@ -12,6 +12,7 @@
 		if (window.innerWidth < 992) {
 			checkSmallDevice = true;
 		}
+		console.log(categories,'//////////////');
 	});
 </script>
 
@@ -123,10 +124,10 @@
 							<div class="nav-item dropdown">
 								<a
 								   
-									href="/{category.slug}#"
+									href="/{category?.slug}#"
 									class="nav-link dropdown-toggle"
 									style="cursor:pointer"
-									data-toggle="">{category.name}</a
+									data-toggle="">{category.title}</a
 								>
 								
 								<div
@@ -137,13 +138,13 @@
 										{#each category?.posts as post}
 											<a
 												title={post.title}
-												href="/{category.slug}/{category?.tag.slug}/{post.slug}"
+												href="/{category?.slug}/{category?.tag?.slug}/{post?.slug}"
 												data-sveltekit-reload
 												class="dropdown-item">{post.title}</a
 											>
 										{/each}
 									{:else}
-										<a href="/{category.slug}" data-sveltekit-reload class="dropdown-item"
+										<a href="/{category?.slug}" data-sveltekit-reload class="dropdown-item"
 											>View All</a
 										>
 									{/if}

@@ -19,9 +19,9 @@ export let data:any={};
                         <div class="mb-2">
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
                                 href="/category/{data.slug}">{data.name}</a>
-                            <a class="text-white" href="/{post.slug}">Jan 01</a>
+                            <a class="text-white" href="/{post?.slug}">Jan 01</a>
                         </div>
-                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="/{post.slug}">{post.title}</a>
+                        <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="/{post?.slug}">{post.title}</a>
                     </div>
                 </div>
                 {/if}
@@ -33,7 +33,7 @@ export let data:any={};
             <div class="row mx-0">
                 {#each data.posts as post,index}
                 {#if index>4&&index<9}
-                <PrimaryCard   slug="{post.slug}" image={post.image} category="{data.name}" date="Jan 01, 2045" title="{post.title}"/>
+                <PrimaryCard   slug="{post?.slug}" image={post.image} category="{data.name}" date="Jan 01, 2045" title="{post.title}"/>
                 {/if}
          {/each}
             </div>

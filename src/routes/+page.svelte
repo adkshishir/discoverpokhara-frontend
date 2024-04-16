@@ -8,7 +8,7 @@ import BreakingNews from "../components/BreakingNews.svelte";
   export let data;
 </script>
 <svelte:head>
-	<!-- <meta name="robots" content="noindex, nofollow" /> -->
+	<meta name="robots" content="noindex, nofollow" />
 	<!-- <meta name="robots" content="index, follow" /> -->
 	<title>Wander Pokhara</title>
 	<meta name="title" content="Wander Pokhara" />
@@ -23,8 +23,8 @@ import BreakingNews from "../components/BreakingNews.svelte";
 	<meta property="og:url" content="https://discoverpokhara.com" />
 </svelte:head>
 
-<MainNews data={data.data.recentPost}/>
-<BreakingNews data={data.data.flashNews}/>
+<MainNews data={data?.data?.recentPost}/>
+<BreakingNews data={data?.data?.flashNews}/>
 <Services data={data}/>
 
  <!-- <FeatureNews data={data.tags[2]}/> -->

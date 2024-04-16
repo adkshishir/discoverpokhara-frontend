@@ -15,6 +15,6 @@
             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="{FRONTEND_URL}/{slug}">{category}</a>
             <a class="text-body" href="/{slug}"><small>{date}</small></a>
         </div>
-        <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="{FRONTEND_URL}/{slug}">{title.slice(0, 30)}{title.length > 30 ? '...' : ''}</a>
+        <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="{FRONTEND_URL}/{slug}">{title?.slice(0, 30)}{title?.length > 30 ? '...' : ''}</a>
     </div>
 </div>

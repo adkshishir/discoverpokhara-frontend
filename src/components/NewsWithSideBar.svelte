@@ -29,11 +29,11 @@
 						{#if index < 2}
 							<CardWithView
 								image={post?.image}
-								category={data?.name}
-								title={post?.data?.title.slice(0, 20)}
+								category={data?.title}
+								title={post?.data?.title?.slice(0, 20)}
 								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 								description={post?.data?.description}
-								date={post?.data?.updated_at.slice(0, 10)}
+								date={post?.data?.updated_at?.slice(0, 10)}
 								comments={post?.data?.comments.length}
 								authorName={post?.data?.author?.name}
 								authorImage={post?.data?.author?.image}
@@ -46,9 +46,9 @@
 							{/if}
 							<CardWithView
 								image={post?.image}
-								category={data?.name}
-								date={post?.data?.updated_at.slice(0, 10)}
-								title={post?.data?.title.slice(0, 20)}
+								category={data?.title}
+								date={post?.data?.updated_at?.slice(0, 10)}
+								title={post?.data?.title?.slice(0, 20)}
 								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 								description={post?.data?.description}
 								comments={post?.data?.comments.length}
@@ -60,17 +60,17 @@
 								{#if index < 6}
 									<CardWithSideImageSm
 										image={post?.image}
-										category={data?.name}
-										date={post?.data?.updated_at.slice(0, 10)}
-										title={post?.data?.title.slice(0, 30)}
+										category={data?.title}
+										date={post?.data?.updated_at?.slice(0, 10)}
+										title={post?.data?.title?.slice(0, 30)}
 										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 									/>
 								{:else}
 									<CardWithSideImageSm
 										image={post?.image}
-										category={data?.name}
-										date={post?.data?.updated_at.slice(0, 10)}
-										title={post?.data?.title.slice(0, 30)}
+										category={data?.title}
+										date={post?.data?.updated_at?.slice(0, 10)}
+										title={post?.data?.title?.slice(0, 30)}
 										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 									/>
 								{/if}
@@ -81,8 +81,8 @@
 							</div>
 							<CardWithSideImageLg
 								image={post?.image}
-								category={data?.name}
-								date={post?.data?.updated_at.slice(0, 10)}
+								category={data?.title}
+								date={post?.data?.updated_at?.slice(0, 10)}
 								title={post?.data?.title}
 								authorImage={post?.data?.author.image}
 								authorName={post?.data?.author.name}
@@ -94,17 +94,17 @@
 								{#if index < 11}
 									<CardWithSideImageSm
 										image={post?.image}
-										category={data?.name}
-										date={post?.data?.updated_at.slice(0, 10)}
-										title={post?.data?.title.slice(0, 30)}
+										category={data?.title}
+										date={post?.data?.updated_at?.slice(0, 10)}
+										title={post?.data?.title?.slice(0, 30)}
 										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 									/>
 								{:else}
 									<CardWithSideImageSm
 										image={post?.image}
-										category={data?.name}
-										date={post?.data?.updated_at.slice(0, 10)}
-										title={post?.data?.title.slice(0, 30)}
+										category={data?.title}
+										date={post?.data?.updated_at?.slice(0, 10)}
+										title={post?.data?.title?.slice(0, 30)}
 										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 									/>
 								{/if}
@@ -156,7 +156,7 @@
 				</div>
 				<!-- Social Follow End-->
 
-				<PopularNews data={popular} categorySlug={data.slug} categoryName={data.name} /> 
+				<PopularNews data={popular} categorySlug={data.slug} categoryName={data.title} /> 
 
 				<!-- Ads Start -->
 				<div class="mb-3">
@@ -196,7 +196,7 @@
 						<Tags />
 						<!-- <div class="d-flex flex-wrap m-n1">
                             {#each tags as tag}
-                            <a href="{tag.slug}" class="btn btn-sm btn-outline-secondary m-1">{tag.name}</a>
+                            <a href="{tag?.slug}" class="btn btn-sm btn-outline-secondary m-1">{tag.name}</a>
                             {/each}
 						</div> -->
 					</div>

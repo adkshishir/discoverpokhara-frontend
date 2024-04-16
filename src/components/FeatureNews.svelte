@@ -16,10 +16,10 @@ export let data:any;
                 <div class="overlay">
                     <div class="mb-2">
                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                            href="/{post.slug}">{data.name}</a>
-                        <a class="text-white" href="/{post.slug}"><small>Jan 01, 2045</small></a>
+                            href="/{post?.slug}">{data.name}</a>
+                        <a class="text-white" href="/{post?.slug}"><small>Jan 01, 2045</small></a>
                     </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/{post.slug}">{post.title.slice(0, 30)}{post.title.length > 30 ? '...' : ''}</a>
+                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/{post?.slug}">{post.title?.slice(0, 30)}{post.title?.length > 30 ? '...' : ''}</a>
                 </div>
             </div>
             {/each}

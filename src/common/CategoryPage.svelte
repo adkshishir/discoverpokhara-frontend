@@ -57,7 +57,7 @@
 							<div class="text-truncate">
 								<a
 									class="text-secondary text-uppercase font-weight-semi-bold"
-									href="/{data?.post?.category?.slug}/{relatedPost.slug}"
+									href="/{data?.post?.category?.slug}/{relatedPost?.slug}"
 								>
 									{relatedPost?.title}</a
 								>
@@ -112,13 +112,13 @@
 						<div style="scroll-behavior: smooth;">
 							{#if data?.post?.contents?.length>0}
 							{#each data?.post?.contents as content}
-							<h4 id="{content.title}" class="mt-4">{content.title}</h4>
+							<h4 id="{content?.title}" class="mt-4">{content?.title}</h4>
 							<article>
-								{@html content.content}
+								{@html content?.content}
 							</article>
 							<div class="d-flex  container my-4">
-                          {#if content.special_sections.length>0}
-						  {#each content.special_sections as special_section}
+                          {#if content?.special_sections?.length>0}
+						  {#each content?.special_sections as special_section}
 
 						  <SpecialCard title={special_section.name} description={special_section.description} image={special_section.image} url={special_section.url}/>
 							 {/each}
@@ -333,13 +333,13 @@
 									<div class="mb-2">
 										<a
 											class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-											href="/{relatedPost.category?.slug}/{relatedPost.tags.slug}">{category}</a
+											href="/{relatedPost?.category?.slug}/{relatedPost.tags?.slug}">{category}</a
 										>
 									
 									</div>
 									<a
 										class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-										href="/{relatedPost.category?.slug}/{relatedPost.tags.slug}/{relatedPost.slug}">{relatedPost.title.length > 30 ? relatedPost.title?.slice(0, 30) + '...' : relatedPost.title}</a
+										href="/{relatedPost?.category?.slug}/{relatedPost.tags?.slug}/{relatedPost?.slug}">{relatedPost.title?.length > 30 ? relatedPost.title?.slice(0, 30) + '...' : relatedPost.title}</a
 									>
 								</div>
 							</div>

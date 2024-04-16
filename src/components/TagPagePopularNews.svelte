@@ -16,7 +16,7 @@
         <div class="bg-white border border-top-0 p-3">
             {#each data as post,index}
             {#if index < 5}
-           <CardWithSideImageSm slug={`${post?.data?.category.slug}/${tagSlug}/${post?.data?.slug}`} image={post.image} category={post?.data?.category?.name} date={post.data?.updated_at.slice(0,10)} title={post.data?.title.slice(0, 30)} />
+           <CardWithSideImageSm slug={`${post?.data?.category?.slug}/${tagSlug}/${post?.data?.slug}`} image={post.image} category={post?.data?.category?.name} date={post.data?.updated_at?.slice(0,10)} title={post.data?.title?.slice(0, 30)} />
             {/if}
             {/each}
         </div>

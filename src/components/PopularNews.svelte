@@ -15,7 +15,7 @@ import { onMount } from "svelte";
     <div class="bg-white border border-top-0 p-3">
         {#each data as post,index}
         {#if index < 5}
-       <CardWithSideImageSm slug={`${categorySlug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`} image={post.image} category={categoryName} date={post.data?.updated_at.slice(0,10)} title={post.data?.title.slice(0, 30)} />
+       <CardWithSideImageSm slug={`${categorySlug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`} image={post.image} category={categoryName} date={post.data?.updated_at?.slice(0,10)} title={post.data?.title?.slice(0, 30)} />
         {/if}
         {/each}
     </div>

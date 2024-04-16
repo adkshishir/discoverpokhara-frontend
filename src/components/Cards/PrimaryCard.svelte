@@ -25,7 +25,7 @@
                     <a class="text-white" href={slug}><small>{date}</small></a>
                     {/if}
             </div>
-            <a data-sveltekit-reload class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href={slug}>{title.slice(0, 40)}{title.length > 40 ? '...' : ''}</a>
+            <a data-sveltekit-reload class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href={slug}>{title?.slice(0, 40)}{title?.length > 40 ? '...' : ''}</a>
         </div>
     </div>
 </div>

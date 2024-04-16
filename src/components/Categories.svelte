@@ -5,7 +5,7 @@
 	import type { PageLoad } from "../routes/$types";
 
     // export let categories: { name: string; slug: string }[] = [];
-     let categories: { name: string; slug: string }[] = [];
+     let categories: { title: string; slug: string }[] = [];
        async function fetchData() {
         let data = await getApi(CATEGORIES);
         categories = data.categories;
@@ -23,7 +23,7 @@
         <div class="d-flex flex-wrap m-n1">
             {#if categories.length > 0}
             {#each categories as category}
-            <a href="{FRONTEND_URL}/category/{category.slug}" class="btn btn-sm btn-outline-secondary m-1">{category.name}</a>
+            <a href="{FRONTEND_URL}/category/{category?.slug}" class="btn btn-sm btn-outline-secondary m-1">{category.title}</a>
             {/each}
             {/if}
         </div>
