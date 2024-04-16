@@ -170,7 +170,7 @@
 						</div>
 						<div class="media">
 							<img
-								src="http:placeholder.com/100x100"
+								src="http://placeholder.com/100x100"
 								alt="user"
 								class="img-fluid mr-3 mt-1"
 								style="width: 45px;"
@@ -187,7 +187,7 @@
 								<button class="btn btn-sm btn-outline-secondary">Reply</button>
 								<div class="media mt-4">
 									<img
-										src="http:placeholder.com/100x100"
+										src="http://placeholder.com/100x100"
 										alt="user"
 										class="img-fluid mr-3 mt-1"
 										style="width: 45px;"
@@ -307,7 +307,7 @@
 						<h4 class="m-0 text-uppercase font-weight-bold">Advertisement</h4>
 					</div>
 					<div class="bg-white text-center border border-top-0 p-3">
-						<a href="/"><img class="img-fluid" src="img/news-800x500-2.jpg" alt="" /></a>
+						<a href="/"><img class="img-fluid" src="" alt="" /></a>
 					</div>
 				</div>
 				<!-- Ads End -->
@@ -324,7 +324,7 @@
 								<img
 									class="img-fluid"
 									style="max-width: 110px;height: 110px;object-fit:cover"
-									src={relatedPost.image}
+									src={relatedPost?.image}
 									alt=""
 								/>
 								<div

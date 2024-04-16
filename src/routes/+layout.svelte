@@ -13,10 +13,6 @@
 		}, 100);
     	  data=await getApi(CATEGORIES);
 	});
-
-
-// Example usage
-
 </script>
 
 <Header />

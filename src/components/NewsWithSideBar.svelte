@@ -18,7 +18,7 @@
 		<img
 			class="img-fluid mb-5 mx-auto"
 			style="max-height: 50vh;object-fit: cover; width: 100%;"
-			src={data?.image}
+			src={data?.media[0]?.original_url}
 			alt={data?.title}
 		/>
 		<div class="row">
@@ -30,7 +30,7 @@
 							<CardWithView
 								image={post?.image}
 								category={data?.title}
-								title={post?.data?.title?.slice(0, 20)}
+								title={post?.data?.h1?.slice(0, 20)}
 								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 								description={post?.data?.description}
 								date={post?.data?.updated_at?.slice(0, 10)}
@@ -48,7 +48,7 @@
 								image={post?.image}
 								category={data?.title}
 								date={post?.data?.updated_at?.slice(0, 10)}
-								title={post?.data?.title?.slice(0, 20)}
+								title={post?.data?.h1?.slice(0, 20)}
 								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 								description={post?.data?.description}
 								comments={post?.data?.comments.length}
@@ -62,7 +62,7 @@
 										image={post?.image}
 										category={data?.title}
 										date={post?.data?.updated_at?.slice(0, 10)}
-										title={post?.data?.title?.slice(0, 30)}
+										title={post?.data?.h1?.slice(0, 30)}
 										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 									/>
 								{:else}
@@ -70,20 +70,20 @@
 										image={post?.image}
 										category={data?.title}
 										date={post?.data?.updated_at?.slice(0, 10)}
-										title={post?.data?.title?.slice(0, 30)}
+										title={post?.data?.h1?.slice(0, 30)}
 										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 									/>
 								{/if}
 							</div>
 						{:else if index == 8}
-							<div class="col-lg-12 mb-3">
+							<!-- <div class="col-lg-12 mb-3">
 								<a href="/"><img class="img-fluid w-100" src="img/ads-728x90.png" alt="" /></a>
-							</div>
+							</div> -->
 							<CardWithSideImageLg
 								image={post?.image}
 								category={data?.title}
 								date={post?.data?.updated_at?.slice(0, 10)}
-								title={post?.data?.title}
+								title={post?.data?.h1}
 								authorImage={post?.data?.author.image}
 								authorName={post?.data?.author.name}
 								comments={post?.data?.comments.length}
@@ -96,7 +96,7 @@
 										image={post?.image}
 										category={data?.title}
 										date={post?.data?.updated_at?.slice(0, 10)}
-										title={post?.data?.title?.slice(0, 30)}
+										title={post?.data?.h1?.slice(0, 30)}
 										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 									/>
 								{:else}
@@ -104,7 +104,7 @@
 										image={post?.image}
 										category={data?.title}
 										date={post?.data?.updated_at?.slice(0, 10)}
-										title={post?.data?.title?.slice(0, 30)}
+										title={post?.data?.h1?.slice(0, 30)}
 										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 									/>
 								{/if}

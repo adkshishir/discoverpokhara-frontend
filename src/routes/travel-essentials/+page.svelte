@@ -8,7 +8,7 @@
 <svelte:head>
 	<meta name="robots" content="noindex, nofollow" />
 	<!-- <meta name="robots" content="index, follow" /> -->
-  <title>{data?.category?.name}</title>
+  <title>{data?.category?.title}</title>
   <meta name="title" content={data?.category?.seo?.meta_title} />
   <meta name="description" content={data?.category?.seo?.meta_description} />
   <meta name="keywords" content={data?.category?.seo?.meta_keywords} />

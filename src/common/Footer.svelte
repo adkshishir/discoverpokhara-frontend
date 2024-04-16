@@ -3,7 +3,6 @@
 	import { FRONTEND_URL } from '$lib/const/api';
 
 	export let data: any;
-	console.log(data,"slug............")
 </script>
 
 <!-- Footer Start -->
@@ -38,9 +37,9 @@
 			</div>
 		</div>
 		<div class="col-lg-3 col-md-6 mb-5">
-			<h5 class="mb-4 text-white text-uppercase font-weight-bold">Adventure</h5>
+			<h5 class="mb-4 text-white text-uppercase font-weight-bold">{data?.categories[0]?.title}</h5>
 			{#if data?.categories?.length > 0}
-				{#each data?.categories[1].posts as post, index}
+				{#each data?.categories[0].posts as post, index}
 					{#if index < 3}
 						<div class="mb-3">
 							<div class="mb-2">
@@ -48,7 +47,7 @@
 									data-sveltekit-reload
 									class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
 									href="{FRONTEND_URL}/category/{data?.categories[1]?.slug}"
-									>{data?.categories[1]?.title}</a
+									>{data?.categories[0]?.title}</a
 								>
 								<!-- <a data-sveltekit-reload class="text-body" href="{FRONTEND_URL}/{post?.slug}"
 									>
@@ -107,7 +106,7 @@
 </div>
 <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
 	<p class="m-0 text-center">
-		&copy; <a data-sveltekit-reload href="https://discoverpokhara.com">Wander Pokhara</a>. All
+		&copy; <a data-sveltekit-reload href="https://wanderpokhara.com">Wander Pokhara</a>. All
 		Rights Reserved.
 	</p>
 </div>

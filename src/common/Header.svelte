@@ -12,7 +12,6 @@
 		if (window.innerWidth < 992) {
 			checkSmallDevice = true;
 		}
-		console.log(categories,'//////////////');
 	});
 </script>
 
