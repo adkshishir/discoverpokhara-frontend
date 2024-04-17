@@ -8,6 +8,7 @@
 	import Tags from '../components/Tags.svelte';
 	import { scrollIntoView } from '$lib/utils';
     export let data: any;
+	let isExpanded: boolean = false;
 	onMount(async() => {
 		 category=window.location.pathname.split('/')[1]
 	});
@@ -76,6 +77,7 @@
 <div class="container-fluid">
 	<div class="container">
 		<div class="row">
+			{#if data?.post?.is_published=='published'}
 			<div class="col-lg-8" style="scroll-behavior: smooth;">
 				<!-- News Detail Start -->
 				<div class="position-relative mb-3">
@@ -94,10 +96,10 @@
 							<a class="text-body" href="/">{data?.post?.updated_at?.slice(0, 10)}</a>
 						</div>
 						<h1 class="mb-3 text-secondary text-uppercase font-weight-bold">
-							{data.post.title}
+							{data.post?.h1||data?.post?.title}
 						</h1>
 
-						<div class="bg-secondary p-4 rounded mb-3">
+						<div class="bg-secondary position-relative p-4 {isExpanded ? 'expanded' : 'collapsed'} rounded mb-3">
 							<h3 class="text-white">Table of Contents</h3>
 							{#if data?.post?.contents?.length>0}
 							{#each data?.post?.contents as content}
@@ -107,16 +109,19 @@
 								 >{content.title}</a> <br>
 							{/each}
 							{/if}
+							<button class="btn btn-sm btn-info text-white rounded position-absolute" style="bottom: 10px;right: 10px" on:click={() => (isExpanded = !isExpanded)}>
+								{isExpanded ? 'Collapse' : 'Expand'}
+							</button>
 						</div>
 
 						<div style="scroll-behavior: smooth;">
 							{#if data?.post?.contents?.length>0}
 							{#each data?.post?.contents as content}
-							<h4 id="{content?.title}" class="mt-4">{content?.title}</h4>
-							<article>
-								{@html content?.content}
+							<h2 id="{content?.title}" class="mt-1 mb-0 h3">{content?.title||""}</h2>
+							<article style="color: var(--dark);">
+								{@html content?.content||""}
 							</article>
-							<div class="d-flex  container my-4">
+							<div class="d-flex  container  my-1">
                           {#if content?.special_sections?.length>0}
 						  {#each content?.special_sections as special_section}
 
@@ -130,7 +135,7 @@
 						{/if}
 						</div>
 					</div>
-					<div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+					<div class="d-flex justify-content-between bg-white border border-top-0 p-1">
 						<!-- <div class="d-flex align-items-center">
 							<img class="rounded-circle mr-2" src="http:placeholder.com/100x100" width="25" height="25" alt="" />
 							<span>John Doe</span>
@@ -143,116 +148,18 @@
 				</div>
 				<!-- News Detail End -->
 
-				<!-- Comment List Start -->
-				<div class="mb-3">
-					<div class="section-title mb-0">
-						<h4 class="m-0 text-uppercase font-weight-bold">3 Comments</h4>
-					</div>
-					<div class="bg-white border border-top-0 p-4">
-						<div class="media mb-4">
-							<img
-								src="https://htmlcodex.com/typeracer/assets/http:placeholder.com/100x100"
-								alt="user"
-								class="img-fluid mr-3 mt-1"
-								style="width: 45px;"
-							/>
-							<div class="media-body">
-								<h6>
-									<a class="text-secondary font-weight-bold" href="/">John Doe</a>
-									<small><i>01 Jan 2045</i></small>
-								</h6>
-								<p>
-									Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-									accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-								</p>
-								<button class="btn btn-sm btn-outline-secondary">Reply</button>
-							</div>
-						</div>
-						<div class="media">
-							<img
-								src="http://placeholder.com/100x100"
-								alt="user"
-								class="img-fluid mr-3 mt-1"
-								style="width: 45px;"
-							/>
-							<div class="media-body">
-								<h6>
-									<a class="text-secondary font-weight-bold" href="/">John Doe</a>
-									<small><i>01 Jan 2045</i></small>
-								</h6>
-								<p>
-									Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-									accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-								</p>
-								<button class="btn btn-sm btn-outline-secondary">Reply</button>
-								<div class="media mt-4">
-									<img
-										src="http://placeholder.com/100x100"
-										alt="user"
-										class="img-fluid mr-3 mt-1"
-										style="width: 45px;"
-									/>
-									<div class="media-body">
-										<h6>
-											<a class="text-secondary font-weight-bold" href="/">John Doe</a>
-											<small><i>01 Jan 2045</i></small>
-										</h6>
-										<p>
-											Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
-											labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
-											eirmod ipsum.
-										</p>
-										<button class="btn btn-sm btn-outline-secondary">Reply</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Comment List End -->
+				
 
-				<!-- Comment Form Start -->
-				<div class="mb-3">
-					<div class="section-title mb-0">
-						<h4 class="m-0 text-uppercase font-weight-bold">Leave a comment</h4>
-					</div>
-					<div class="bg-white border border-top-0 p-4">
-						<form>
-							<div class="form-row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label for="name">Name *</label>
-										<input type="text" class="form-control" id="name" />
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label for="email">Email *</label>
-										<input type="email" class="form-control" id="email" />
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="website">Website</label>
-								<input type="url" class="form-control" id="website" />
-							</div>
-
-							<div class="form-group">
-								<label for="message">Message *</label>
-								<textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-							</div>
-							<div class="form-group mb-0">
-								<input
-									type="submit"
-									value="Leave a comment"
-									class="btn btn-primary font-weight-semi-bold py-2 px-3"
-								/>
-							</div>
-						</form>
-					</div>
-				</div>
-				<!-- Comment Form End -->
+				
 			</div>
+			{:else}
+
+			<div class="col-lg-8">
+				<h2>Visit Later it is under construction</h2>
+
+			</div>
+			{/if}
+
 
 			<div class="col-lg-4">
 				<!-- Social Follow Start -->
@@ -273,43 +180,43 @@
 							fansCount="12,345"
 							slug="https://www.instagram.com/"
 						></SocialMediaCard>
-						<SocialMediaCard
+						<!-- <SocialMediaCard
 							logoClass="fab fa-linkedin-in"
 							backgroundColor="#0185AE"
 							fansCount="12,345"
 							slug="https://www.linkedin.com/"
-						></SocialMediaCard>
+						></SocialMediaCard> -->
 						<SocialMediaCard
 							logoClass="fab fa-twitter"
 							backgroundColor="#1DA1F2"
 							fansCount="12,345"
 							slug="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
 						></SocialMediaCard>
-						<SocialMediaCard
+						<!-- <SocialMediaCard
 							logoClass="fab fa-pinterest"
 							backgroundColor="#BD081B"
 							fansCount="12,345"
 							slug="https://www.pinterest.com/"
-						></SocialMediaCard>
-						<SocialMediaCard
+						></SocialMediaCard> -->
+						<!-- <SocialMediaCard
 							logoClass="fab fa-vimeo-v"
 							backgroundColor="#055570"
 							fansCount="12,345"
 							slug="https://www.vimeo.com/"
-						></SocialMediaCard>
+						></SocialMediaCard> -->
 					</div>
 				</div>
 				<!-- Social Follow End -->
 
 				<!-- Ads Start -->
-				<div class="mb-3">
+				<!-- <div class="mb-3">
 					<div class="section-title mb-0">
 						<h4 class="m-0 text-uppercase font-weight-bold">Advertisement</h4>
 					</div>
 					<div class="bg-white text-center border border-top-0 p-3">
 						<a href="/"><img class="img-fluid" src="" alt="" /></a>
 					</div>
-				</div>
+				</div> -->
 				<!-- Ads End -->
 
 				<!-- Popular News Start -->
@@ -350,7 +257,7 @@
 				<!-- Popular News End -->
 
 				<!-- Newsletter Start -->
-				<div class="mb-3">
+				<!-- <div class="mb-3">
 					<div class="section-title mb-0">
 						<h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
 					</div>
@@ -364,7 +271,7 @@
 						</div>
 						<small>Lorem ipsum dolor sit amet elit</small>
 					</div>
-				</div>
+				</div> -->
 				<!-- Newsletter End -->
 
 				<!-- Tags Start -->
@@ -387,4 +294,16 @@
 	a{
 		scroll-behavior: smooth;
 	}
+	.collapsed{
+		overflow-y: hidden;
+		height: 140px;
+	}
+
+
+	
+	.expanded{
+		scroll-behavior: smooth;
+		height: 100%;
+	}
+
 </style>

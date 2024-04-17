@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import CardWithSideImageLg from './Cards/CardWithSideImageLg.svelte';
 	import CardWithSideImageSm from './Cards/CardWithSideImageSm.svelte';
 	import CardWithView from './Cards/CardWithView.svelte';
 	import SocialMediaCard from './Cards/SocialMediaCard.svelte';
 	import PopularNews from './PopularNews.svelte';
 	import Tags from './Tags.svelte';
-	import { FRONTEND_URL } from '$lib/const/api';
 	export let data: any;
 	export let latest: any;
 	export let popular: any;
@@ -30,7 +28,7 @@
 							<CardWithView
 								image={post?.image}
 								category={data?.title}
-								title={post?.data?.h1?.slice(0, 20)}
+								title={post?.data?.title?.slice(0, 20)}
 								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 								description={post?.data?.description}
 								date={post?.data?.updated_at?.slice(0, 10)}
