@@ -3,5 +3,4 @@
 	import CategoryPage from '../../../../common/CategoryPage.svelte';
 </script>
 
-
-<CategoryPage data={data}/>
+<CategoryPage {data} />

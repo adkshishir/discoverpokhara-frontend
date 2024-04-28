@@ -13,7 +13,6 @@
        }
        onMount(async()=>{
       await fetchData();
-    //   console.log(tags)
        })
 </script>
 

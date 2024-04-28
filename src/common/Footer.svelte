@@ -3,6 +3,7 @@
 	import { FRONTEND_URL } from '$lib/const/api';
 
 	export let data: any;
+     
 </script>
 
 <!-- Footer Start -->
@@ -58,7 +59,7 @@
 							<a
 								data-sveltekit-reload
 								class="small text-body text-uppercase font-weight-medium"
-								href="{FRONTEND_URL}/{data?.categories[0]?.slug}/{post?.slug}">{post?.title}</a
+								href="{FRONTEND_URL}/{data?.categories[0]?.slug}/{data?.categories[0]?.tag?.slug}/{post?.slug}">{post?.title}</a
 							>
 						</div>
 					{/if}

@@ -2,25 +2,24 @@
 	import { onMount } from 'svelte';
 	import Footer from '../common/Footer.svelte';
 	import Header from '../common/Header.svelte';
-	import { CATEGORIES, FRONTEND_URL,TAGS} from '$lib/const/api';
+	import { CATEGORIES, FRONTEND_URL } from '$lib/const/api';
 	import getApi from '$lib/helper/get';
 
-	 let data:any;
+	let data: any;
 	let isLoaded = false;
 	onMount(async () => {
 		setTimeout(() => {
 			isLoaded = true;
 		}, 100);
-    	  data=await getApi(CATEGORIES);
+		data = await getApi(CATEGORIES);
 	});
 </script>
 
 <Header />
 <slot />
-<Footer data={data} />
+<Footer {data} />
 
-<div>
-</div>
+<div></div>
 {#if isLoaded}
 	<!-- End of Tawk.to Script -->
 	<script src="{FRONTEND_URL}/js/main.js"></script>

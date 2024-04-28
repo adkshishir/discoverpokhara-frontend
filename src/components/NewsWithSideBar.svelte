@@ -9,31 +9,23 @@
 	export let data: any;
 	export let latest: any;
 	export let popular: any;
-	export let seo:{
-		meta_title:string,
-		meta_description:string,
-		meta_keywords:string,
-		schema:string
-	}
 </script>
+
 <svelte:head>
-<!-- seo -->
-<meta name="robots" content="index, follow" />
-<title>{data?.category?.title}</title>
-<meta name="title" content={seo?.meta_title} />
-<meta name="description" content={seo?.meta_description} />
-<meta name="keywords" content={seo?.meta_keywords} />
-<script type="application/ld+json">
-{seo?.schema}
-</script>
-<!-- <meta name="revisit-after" content="1 days" /> -->
-<!-- og graps and tags -->
-<meta property="og:title" content={seo?.meta_title} />
-<meta property="og:description" content={seo?.meta_description} />
-<meta property="og:image" content={data?.category?.image} />
-<meta property="og:url" content='{FRONTEND_URL}/{data?.category?.slug}' />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:site" content="@discoverpokhara" />
+	<!-- seo -->
+	<title>{data?.title}</title>
+	<meta name="title" content={data?.seo?.meta_title} />
+	<meta name="description" content={data?.seo?.meta_description} />
+	<meta name="keywords" content={data?.seo?.meta_keywords} />
+	<script type="application/ld+json">
+{data?.seo?.schema}
+	</script>
+	<meta property="og:title" content={data?.seo?.meta_title} />
+	<meta property="og:description" content={data?.seo?.meta_description} />
+	<meta property="og:image" content={data?.category?.image} />
+	<meta property="og:url" content="{FRONTEND_URL}/{data?.category?.slug}" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@discoverpokhara" />
 </svelte:head>
 
 <!-- News With Sidebar Start -->
@@ -49,88 +41,86 @@
 			<div class="col-lg-8">
 				<div class="row">
 					{#if latest?.length > 0}
-					{#each latest as post, index}
-						{#if index < 2}
-							<CardWithView
-								image={post?.image}
-								category={data?.title}
-								title={post?.data?.title?.slice(0, 20)}
-								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-								description={post?.data?.description}
-								date={post?.data?.updated_at?.slice(0, 10)}
-								comments={post?.data?.comments.length}
-								
-							/>
-						{:else if index >= 2 && index < 4}
-							{#if index == 2}
-								<div class="col-lg-12 mb-3">
-									<a href="/"><img class="img-fluid w-100" src="img/ads-728x90.png" alt="" /></a>
-								</div>
-							{/if}
-							<CardWithView
-								image={post?.image}
-								category={data?.title}
-								date={post?.data?.updated_at?.slice(0, 10)}
-								title={post?.data?.h1?.slice(0, 20)}
-								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-								description={post?.data?.description}
-								comments={post?.data?.comments.length}
-								
-							/>
-						{:else if index >= 4 && index < 8}
-							<div class="col-lg-6">
-								{#if index < 6}
-									<CardWithSideImageSm
-										image={post?.image}
-										category={data?.title}
-										date={post?.data?.updated_at?.slice(0, 10)}
-										title={post?.data?.h1?.slice(0, 30)}
-										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-									/>
-								{:else}
-									<CardWithSideImageSm
-										image={post?.image}
-										category={data?.title}
-										date={post?.data?.updated_at?.slice(0, 10)}
-										title={post?.data?.h1?.slice(0, 30)}
-										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-									/>
+						{#each latest as post, index}
+							{#if index < 2}
+								<CardWithView
+									image={post?.image}
+									category={data?.title}
+									title={post?.data?.title?.slice(0, 20)}
+									slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+									description={post?.data?.description}
+									date={post?.data?.updated_at?.slice(0, 10)}
+									comments={post?.data?.comments.length}
+								/>
+							{:else if index >= 2 && index < 4}
+								{#if index == 2}
+									<div class="col-lg-12 mb-3">
+										<a href="/"><img class="img-fluid w-100" src="img/ads-728x90.png" alt="" /></a>
+									</div>
 								{/if}
-							</div>
-						{:else if index == 8}
-							<!-- <div class="col-lg-12 mb-3">
+								<CardWithView
+									image={post?.image}
+									category={data?.title}
+									date={post?.data?.updated_at?.slice(0, 10)}
+									title={post?.data?.h1?.slice(0, 20)}
+									slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+									description={post?.data?.description}
+									comments={post?.data?.comments.length}
+								/>
+							{:else if index >= 4 && index < 8}
+								<div class="col-lg-6">
+									{#if index < 6}
+										<CardWithSideImageSm
+											image={post?.image}
+											category={data?.title}
+											date={post?.data?.updated_at?.slice(0, 10)}
+											title={post?.data?.h1?.slice(0, 30)}
+											slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+										/>
+									{:else}
+										<CardWithSideImageSm
+											image={post?.image}
+											category={data?.title}
+											date={post?.data?.updated_at?.slice(0, 10)}
+											title={post?.data?.h1?.slice(0, 30)}
+											slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+										/>
+									{/if}
+								</div>
+							{:else if index == 8}
+								<!-- <div class="col-lg-12 mb-3">
 								<a href="/"><img class="img-fluid w-100" src="img/ads-728x90.png" alt="" /></a>
 							</div> -->
-							<CardWithSideImageLg
-								image={post?.image}
-								category={data?.title}
-								date={post?.data?.updated_at?.slice(0, 10)}
-								title={post?.data?.h1}
-								comments={post?.data?.comments.length}
-								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-							/>
-						{:else if index >= 9 && index < 13}
-							<div class="col-lg-6">
-								{#if index < 11}
-									<CardWithSideImageSm
-										image={post?.image}
-										category={data?.title}
-										date={post?.data?.updated_at?.slice(0, 10)}
-										title={post?.data?.h1?.slice(0, 30)}
-										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-									/>
-								{:else}
-									<CardWithSideImageSm
-										image={post?.image}
-										category={data?.title}
-										date={post?.data?.updated_at?.slice(0, 10)}
-										title={post?.data?.h1?.slice(0, 30)}
-										slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
-									/>
-								{/if}
-							</div>
-						{/if}
-					{/each}
+								<CardWithSideImageLg
+									image={post?.image}
+									category={data?.title}
+									date={post?.data?.updated_at?.slice(0, 10)}
+									title={post?.data?.h1}
+									comments={post?.data?.comments.length}
+									slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+								/>
+							{:else if index >= 9 && index < 13}
+								<div class="col-lg-6">
+									{#if index < 11}
+										<CardWithSideImageSm
+											image={post?.image}
+											category={data?.title}
+											date={post?.data?.updated_at?.slice(0, 10)}
+											title={post?.data?.h1?.slice(0, 30)}
+											slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+										/>
+									{:else}
+										<CardWithSideImageSm
+											image={post?.image}
+											category={data?.title}
+											date={post?.data?.updated_at?.slice(0, 10)}
+											title={post?.data?.h1?.slice(0, 30)}
+											slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
+										/>
+									{/if}
+								</div>
+							{/if}
+						{/each}
 					{/if}
 				</div>
 			</div>
@@ -153,18 +143,18 @@
 							backgroundColor="#C8359D"
 							fansCount="12,345"
 							slug="https://www.instagram.com/"
-							></SocialMediaCard>
-							<SocialMediaCard
-								logoClass="fab fa-twitter"
-								backgroundColor="#1DA1F2"
-								fansCount="12,345"
-								slug="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
-							></SocialMediaCard>
+						></SocialMediaCard>
+						<SocialMediaCard
+							logoClass="fab fa-twitter"
+							backgroundColor="#1DA1F2"
+							fansCount="12,345"
+							slug="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
+						></SocialMediaCard>
 					</div>
 				</div>
 				<!-- Social Follow End-->
 
-				<PopularNews data={popular} categorySlug={data.slug} categoryName={data.title} /> 
+				<PopularNews data={popular} categorySlug={data.slug} categoryName={data.title} />
 
 				<!-- Ads Start -->
 				<!-- <div class="mb-3">
