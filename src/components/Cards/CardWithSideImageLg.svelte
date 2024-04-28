@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { FRONTEND_URL } from "$lib/const/api";
 export let image = 'https://via.placeholder.com/700x435';
 export let category='Business';
 export let date='Jan 01, 2045';
 export let title='Lorem ipsum dolor sit amet elit';
 export let slug='news-1';
-export let description='Lorem ipsum dolor sit amet elit';
-export let authorName='Shishir Adhikari';
-export let authorImage='https://via.placeholder.com/25x25';
+export let description='';
+// export let authorName='Shishir Adhikari';
+// export let authorImage='https://via.placeholder.com/25x25';
 export let comments=0;
 export let views=0;
 
@@ -29,8 +30,9 @@ export let views=0;
             </div>
             <div class="d-flex justify-content-between bg-white border-top mt-auto p-4">
                 <div class="d-flex align-items-center">
-                    <img class="rounded-circle mr-2" src={authorImage} width="25" height="25" alt="">
-                    <small>{authorName}</small>
+                    <!-- <img class="rounded-circle mr-2" src={authorImage} width="25" height="25" alt=""> -->
+                    <a href="{FRONTEND_URL}/{slug}" class="btn btn-sm btn-primary rounded text-white ">Read More</a>
+                    <small></small>
                 </div>
                 <div class="d-flex align-items-center">
                     <small class="ml-3"><i class="far fa-eye mr-2"></i>{views}</small>

@@ -46,7 +46,7 @@
 								<a
 									data-sveltekit-reload
 									class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-									href="{FRONTEND_URL}/category/{data?.categories[1]?.slug}"
+									href="{FRONTEND_URL}/{data?.categories[0]?.slug}"
 									>{data?.categories[0]?.title}</a
 								>
 								<!-- <a data-sveltekit-reload class="text-body" href="{FRONTEND_URL}/{post?.slug}"
@@ -58,7 +58,7 @@
 							<a
 								data-sveltekit-reload
 								class="small text-body text-uppercase font-weight-medium"
-								href="{FRONTEND_URL}/{data?.categories[1]?.slug}/{post?.slug}">{post?.title}</a
+								href="{FRONTEND_URL}/{data?.categories[0]?.slug}/{post?.slug}">{post?.title}</a
 							>
 						</div>
 					{/if}

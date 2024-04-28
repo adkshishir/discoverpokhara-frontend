@@ -18,8 +18,7 @@
 
 
 <svelte:head>
-	<meta name="robots" content="noindex, nofollow" />
-	<!-- <meta name="robots" content="index, follow" /> -->
+	<meta name="robots" content="index, follow" />
 	<title>{data?.post?.title}</title>
 	<meta name="title" content={data?.seo?.meta_title} />
 	<meta name="description" content={data?.seo?.meta_description} />
@@ -28,7 +27,6 @@
 	<script type="application/ld+json">
     {data?.seo?.schema}
 	</script>
-
 	<meta name="author" content={data?.author?.name} />
 	<!-- <meta name="revisit-after" content="1 days" /> -->
 	<!-- og graps and tags -->
@@ -179,19 +177,19 @@
 							backgroundColor="#C8359D"
 							fansCount="12,345"
 							slug="https://www.instagram.com/"
-						></SocialMediaCard>
+							></SocialMediaCard>
+							<SocialMediaCard
+								logoClass="fab fa-twitter"
+								backgroundColor="#1DA1F2"
+								fansCount="12,345"
+								slug="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
+							></SocialMediaCard>
 						<!-- <SocialMediaCard
 							logoClass="fab fa-linkedin-in"
 							backgroundColor="#0185AE"
 							fansCount="12,345"
 							slug="https://www.linkedin.com/"
 						></SocialMediaCard> -->
-						<SocialMediaCard
-							logoClass="fab fa-twitter"
-							backgroundColor="#1DA1F2"
-							fansCount="12,345"
-							slug="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
-						></SocialMediaCard>
 						<!-- <SocialMediaCard
 							logoClass="fab fa-pinterest"
 							backgroundColor="#BD081B"

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { FRONTEND_URL } from '$lib/const/api';
 	import CardWithSideImageLg from './Cards/CardWithSideImageLg.svelte';
 	import CardWithSideImageSm from './Cards/CardWithSideImageSm.svelte';
 	import CardWithView from './Cards/CardWithView.svelte';
@@ -8,7 +9,32 @@
 	export let data: any;
 	export let latest: any;
 	export let popular: any;
+	export let seo:{
+		meta_title:string,
+		meta_description:string,
+		meta_keywords:string,
+		schema:string
+	}
 </script>
+<svelte:head>
+<!-- seo -->
+<meta name="robots" content="index, follow" />
+<title>{data?.category?.title}</title>
+<meta name="title" content={seo?.meta_title} />
+<meta name="description" content={seo?.meta_description} />
+<meta name="keywords" content={seo?.meta_keywords} />
+<script type="application/ld+json">
+{seo?.schema}
+</script>
+<!-- <meta name="revisit-after" content="1 days" /> -->
+<!-- og graps and tags -->
+<meta property="og:title" content={seo?.meta_title} />
+<meta property="og:description" content={seo?.meta_description} />
+<meta property="og:image" content={data?.category?.image} />
+<meta property="og:url" content='{FRONTEND_URL}/{data?.category?.slug}' />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@discoverpokhara" />
+</svelte:head>
 
 <!-- News With Sidebar Start -->
 <div class="container-fluid">
@@ -33,8 +59,7 @@
 								description={post?.data?.description}
 								date={post?.data?.updated_at?.slice(0, 10)}
 								comments={post?.data?.comments.length}
-								authorName={post?.data?.author?.name}
-								authorImage={post?.data?.author?.image}
+								
 							/>
 						{:else if index >= 2 && index < 4}
 							{#if index == 2}
@@ -50,8 +75,7 @@
 								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 								description={post?.data?.description}
 								comments={post?.data?.comments.length}
-								authorName={post?.data?.author?.name}
-								authorImage={post?.data?.author?.image}
+								
 							/>
 						{:else if index >= 4 && index < 8}
 							<div class="col-lg-6">
@@ -82,8 +106,6 @@
 								category={data?.title}
 								date={post?.data?.updated_at?.slice(0, 10)}
 								title={post?.data?.h1}
-								authorImage={post?.data?.author.image}
-								authorName={post?.data?.author.name}
 								comments={post?.data?.comments.length}
 								slug={`${data.slug}/${post?.data?.tags[0]?.slug}/${post?.data?.slug}`}
 							/>
@@ -131,25 +153,13 @@
 							backgroundColor="#C8359D"
 							fansCount="12,345"
 							slug="https://www.instagram.com/"
-						></SocialMediaCard>
-						<SocialMediaCard
-							logoClass="fab fa-linkedin-in"
-							backgroundColor="#0185AE"
-							fansCount="12,345"
-							slug="https://www.linkedin.com/"
-						></SocialMediaCard>
-						<SocialMediaCard
-							logoClass="fab fa-twitter"
-							backgroundColor="#1DA1F2"
-							fansCount="12,345"
-							slug="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
-						></SocialMediaCard>
-						<SocialMediaCard
-							logoClass="fab fa-reddit"
-							backgroundColor="#FF4500"
-							fansCount="12,345"
-							slug="https://www.reddit.com/"
-						></SocialMediaCard>
+							></SocialMediaCard>
+							<SocialMediaCard
+								logoClass="fab fa-twitter"
+								backgroundColor="#1DA1F2"
+								fansCount="12,345"
+								slug="https://twitter.com/Discoverpokhara?t=ivcEuW9lI0f0CQlhapj5"
+							></SocialMediaCard>
 					</div>
 				</div>
 				<!-- Social Follow End-->
@@ -157,18 +167,18 @@
 				<PopularNews data={popular} categorySlug={data.slug} categoryName={data.title} /> 
 
 				<!-- Ads Start -->
-				<div class="mb-3">
+				<!-- <div class="mb-3">
 					<div class="section-title mb-0">
 						<h4 class="m-0 text-uppercase font-weight-bold">Advertisement</h4>
 					</div>
 					<div class="bg-white text-center border border-top-0 p-3">
 						<a href="/"><img class="img-fluid" src="img/news-800x500-2.jpg" alt="" /></a>
 					</div>
-				</div>
+				</div> -->
 				<!-- Ads End -->
 
 				<!-- Newsletter Start -->
-				<div class="mb-3">
+				<!-- <div class="mb-3">
 					<div class="section-title mb-0">
 						<h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
 					</div>
@@ -182,7 +192,7 @@
 						</div>
 						<small>Lorem ipsum dolor sit amet elit</small>
 					</div>
-				</div>
+				</div> -->
 				<!-- Newsletter End -->
 
 				<!-- Tags Start -->

@@ -5,11 +5,37 @@
 	import SocialMediaCard from './Cards/SocialMediaCard.svelte';
 	import Tags from './Tags.svelte';
 	import TagPagePopularNews from './TagPagePopularNews.svelte';
+	import { FRONTEND_URL } from '$lib/const/api';
 	export let data: any;
 	export let latest: any;
 	export let popular: any;
+	export let seo:{
+		meta_title:string,
+		meta_description:string,
+		meta_keywords:string,
+		schema:string
+	}
 
 </script>
+<svelte:head>
+	<title>{data?.tag?.name}</title>
+	<meta name="title" content={seo?.meta_title} />
+	<meta name="description" content={seo?.meta_description} />
+	<meta name="keywords" content={seo?.meta_keywords} />
+	<script type="application/ld+json">
+  {seo?.schema}
+  </script>
+  <meta name="revisit-after" content="1 days" />
+  <meta name="robots" content="index, follow" />
+  <!-- og graps and tags -->
+  <meta property="og:title" content={seo?.meta_title} />
+  <meta property="og:description" content={seo?.meta_description} />
+  <meta property="og:image" content={data?.tag?.image} />
+  <meta property="og:url" content='{FRONTEND_URL}/{data?.tag?.slug}' />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@discoverpokhara" />
+
+</svelte:head>
 
 <!-- News With Sidebar Start -->
 <div class="container-fluid">
@@ -34,8 +60,6 @@
 								description={last?.data?.description}
 								date={last?.data?.updated_at?.slice(0, 10)}
 								comments={last?.data?.comments?.length}
-								authorName={last?.data?.author?.name}
-								authorImage={last?.data?.author?.image}
 							/>
 						{:else if index >= 2 && index < 4}
 							{#if index == 2}
@@ -51,8 +75,6 @@
 								description={last?.data?.description}
 								date={last?.data?.updated_at?.slice(0, 10)}
 								comments={last?.data?.comments?.length}
-								authorName={last?.data?.author?.name}
-								authorImage={last?.data?.author?.image}
 							/>
 						{:else if index >= 4 && index < 8}
 							<div class="col-lg-6">
@@ -84,8 +106,6 @@
                                 title={last?.data?.title?.slice(0, 20)}
                                 slug={`${last?.data?.category?.slug}/${data?.data?.slug}/${last?.data?.slug}`}
                                 date={last?.data?.updated_at?.slice(0, 10)}
-								authorImage={last?.data?.author?.image}
-								authorName={last?.data?.author?.name}
 								comments={last?.data?.comments?.length}
 								
 							/>
